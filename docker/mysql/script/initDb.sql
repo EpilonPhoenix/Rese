@@ -1,0 +1,1 @@
+grant all on laravel_db.* to laravel_user;
