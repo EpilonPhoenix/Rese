@@ -18,35 +18,27 @@
         <div class="appname">Rese</div>
         <nav>
             @if (Auth::check())
-                @if (!empty( $user -> id ))
-                <form method="post" action="/">
-                    @csrf
-                    <button class = "nav_contents">Home</button>
-                </form>
+                <div class="nav_contents">
+                    <a href="{{ route('home') }}">Home</a>
+                </div>
                 <form method="post" action="/logout">
                     @csrf
-                    <input type="hidden" name='user_id' value="{{$user -> id}}">
                     <button class = "nav_contents">Logout</button>
                 </form>
                 <form method="post" action="/mypage">
                     @csrf
-                    <input type="hidden" name='users_id' value="{{$user -> id}}">
                     <button class = "nav_contents">Mypage</button>
                 </form>
-                @endif
             @else
-                <form method="post" action="/">
-                    @csrf
-                    <button class = "nav_contents">Home</button>
-                </form>
-                <form method="post" action="/">
-                    @csrf
-                    <button class = "nav_contents">Registration</button>
-                </form>
-                <form method="post" action="/login">
-                    @csrf
-                    <button class = "nav_contents">Login</button>
-                </form>
+                <div class="nav_contents">
+                    <a href="{{ route('home') }}">Home</a>
+                </div>
+                <div class="nav_contents">
+                    <a href="{{ route('register') }}">Registration</a>
+                </div>
+                <div class="nav_contents">
+                    <a href="{{ route('login') }}">Login</a>
+                </div>
             @endif
         </nav>
     </header>

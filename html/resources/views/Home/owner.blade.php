@@ -7,7 +7,7 @@
 @section('pagetitle','Rese')
 
 @section('contents')
-    ユーザー画面
+    オーナー画面
     @if (count($errors) > 0)
         @foreach ($errors->all() as $error)
             {{$error}}
