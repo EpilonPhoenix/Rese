@@ -10,14 +10,18 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $user = User::IdEq(Auth::id())->first();
-        if ($user->role_id == 1)
+        if (Auth::check())
         {
-            return view('Home.admin');
-        }elseif ($user->role_id == 2)
-        {
-            return view('Home.owner');
-        }elseif ($user->role_id == 3)
+            $user = User::IdEq(Auth::id())->first();
+            if ($user->role_id == 1)
+            {
+                return view('Home.admin');
+            }elseif ($user->role_id == 2)
+            {
+                return view('Home.owner');
+            }else
+                return view('Home.index');
+        }else
         {
             return view('Home.index');
         }

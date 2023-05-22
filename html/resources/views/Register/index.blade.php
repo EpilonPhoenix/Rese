@@ -13,8 +13,7 @@
                 Registration
             </div>
         </div>
-        <form method="post" action="/login" class="Login">
-            @csrf
+        <form method="post" action="/register" class="Login">
             @csrf
             <div class="Register_form">
                 <input type="text" name='name' placeholder="Username" >
