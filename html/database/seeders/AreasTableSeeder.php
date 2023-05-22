@@ -4,8 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-
-class RolesTableSeeder extends Seeder
+class AreasTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,16 +14,16 @@ class RolesTableSeeder extends Seeder
     public function run()
     {
         $param = [
-            'role' => 'Administrator',
+            'area' => '東京都',
         ];
-        DB::table('roles')->insert($param);
+        DB::table('areas')->insert($param);
         $param = [
-            'role' => 'ShopOwner',
+            'area' => '大阪府',
         ];
-        DB::table('roles')->insert($param);
+        DB::table('areas')->insert($param);
         $param = [
-            'role' => 'User',
+            'area' => '福岡県',
         ];
-        DB::table('roles')->insert($param);
+        DB::table('areas')->insert($param);
     }
 }
