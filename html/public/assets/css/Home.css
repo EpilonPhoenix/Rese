@@ -1,0 +1,93 @@
+.messageAndSearchbar{
+    width: 90%;
+    margin: 0 auto 20px auto;
+}
+.message{
+    font-size: 24px;
+}
+
+.searchbar{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 50%;
+    height: 36px;
+    background-color: #fff;
+    box-shadow:2px 2px 5px;
+}
+.searchbar form{
+    width: 100%;
+}
+.area_pulldown{
+    display: flex;
+    width:20%;
+    outline: none;
+}
+.area_pulldown select{
+    margin: auto;
+}
+.genre_pulldown{
+    display: flex;
+    width:30%;
+    border: none;
+}
+.genre_pulldown select{
+    margin: auto;
+}
+.search_text{
+    display: flex;
+    width:50%;
+    border: none;
+}
+.search_text input{
+    margin: auto;
+}
+.Cards{
+    width: 90%;
+    margin: auto;
+}
+
+.Card{
+    width: 200px;
+    height: 200px;
+}
+
+.Card_img{
+    width: 100%;
+    height: 50%;
+    margin: 0 auto 5px auto;
+}
+.Card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px  5px 0 0;
+}
+
+.Card_ShopName{
+    font-size: 24px;
+    margin: 0 auto 5px 15px;
+}
+
+.Tags{
+    font-size: 12px;
+    margin: 0 auto 5px 15px;
+}
+.Buttons{
+    margin: 0 auto 5px 15px;
+}
+.Buttons button{
+    display: block;
+    font-size: 12px;
+    width: 100px;
+    border:none;
+    background-color:  #3560f6;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.favorite{
+    color: #E2E2E2;
+    font-size: 18px;
+    margin: 0 10px 5px auto;
+}
