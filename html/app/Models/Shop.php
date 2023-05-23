@@ -16,5 +16,17 @@ class Shop extends Model
         'owner_id' => 'required',
         'name' => 'required',
     );
+    public function area()
+    {
+        return $this->belongsTo('App\Models\Area');
+    }
+    public function Genre()
+    {
+        return $this->belongsTo('App\Models\Genre');
+    }
+
+    public function scopeConcated($query){
+        return $query->area->area;
+    }
 
 }

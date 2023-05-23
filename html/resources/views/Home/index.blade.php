@@ -40,25 +40,27 @@
         </div>
     </div>
     <div class="Cards">
-        <div class="Card">
-            <div class="Card_img">
-                <img src="{{ asset('storage/images/1/sushi.jpg') }}">
-            </div>
-            <div class="Card_ShopName">
-                仙人
-            </div>
-            <div class="Tags">
-                東京都寿司
-            </div>
-            <div class="Buttons layout__center-row">
-                <button id='button' type="submit">
-                    詳しく見る
-                </button>
-                <div class="favorite">
-                    &#9829;
+        @foreach ($shops as $shop)
+            <div class="Card">
+                <div class="Card_img">
+                    <img src="{{ url('storage/images/',[$shop->id,$shop->picture]) }}">
+                </div>
+                <div class="Card_ShopName">
+                    {{$shop->name}}
+                </div>
+                <div class="Tags">
+                    #{{$shop->area->area}} #{{$shop->genre->genre}}
+                </div>
+                <div class="Buttons layout__center-row">
+                    <button id='button' type="submit">
+                        詳しく見る
+                    </button>
+                    <div class="favorite">
+                        &#9829;
+                    </div>
                 </div>
             </div>
-        </div>
+        @endforeach
     
     </div>
     @if (count($errors) > 0)

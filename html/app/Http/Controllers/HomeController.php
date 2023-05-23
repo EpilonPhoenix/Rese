@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Area;
 use App\Models\Genre;
-
+use App\Models\Shop;
 class HomeController extends Controller
 {
     public function index()
@@ -29,8 +29,8 @@ class HomeController extends Controller
         }else
         {
             $message="ようこそ、Rese へ";
-            $areas =Area::all();
-            return view('Home.index',compact('message','areas','genres'));
+            $shops = Shop::with('area')->with('genre')->get();
+            return view('Home.index',compact('message','areas','genres','shops'));
         }
     }
 }

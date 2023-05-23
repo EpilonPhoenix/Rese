@@ -43,6 +43,9 @@
     margin: auto;
 }
 .Cards{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
     width: 90%;
     margin: auto;
 }
@@ -50,6 +53,8 @@
 .Card{
     width: 200px;
     height: 200px;
+    margin: 0 auto 20px auto;
+
 }
 
 .Card_img{
