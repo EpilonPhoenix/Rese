@@ -51,7 +51,7 @@ class User extends Authenticatable
 
     public function role() :BelongsTo
     {
-        return $this->belongsTo('App\Role');
+        return $this->belongsTo('App\Models\Role');
     }
     public function scopeIdEq($query, $str){
         $query->select('id','role_id','name')->find($str);

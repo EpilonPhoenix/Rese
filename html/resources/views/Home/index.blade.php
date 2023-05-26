@@ -2,6 +2,19 @@
 
 @section('Css')
     <link rel="stylesheet" href="{{ asset('assets/css/Home.css') }}" />
+    <script language="javascript" type="text/javascript">
+    window.addEventListener('load', function(){
+        const searchbar = document.getElementById('searchbar');
+        const area = document.getElementById('area');
+        const ganre = document.getElementById('genre');
+
+        function inputChange(){
+            searchbar.submit();
+        }
+        searchbar.onchange = inputChange;
+
+    })
+    </script>
 @endsection
 
 @section('pagetitle','Rese')
@@ -12,29 +25,30 @@
             {{$message}}
         </div>
         <div class="searchbar">
-            <form method="post" class="layout__center-row" >
+            <form method="POST" action="/" class="layout__center-row" id = "searchbar">
+                @csrf
                 <div class="area_pulldown">
-                    <select name="area" id="">
-                        <option value="" selected>All Area</option>
+                    <select name="area" id="area">
+                        <option value="">All Area</option>
                         @foreach ($areas as $area)
-                            <option value="{{$area->id}}">
+                            <option value="{{$area->id}}" @if ($area->id == (int)$valarr['area'])  selected @endif>
                                 {{$area->area}}
                             </option>
                         @endforeach
                     </select>
                 </div>
                 <div class="genre_pulldown">
-                    <select name="genre" id="">
-                        <option value="" selected>All Genre</option>
+                    <select name="genre" id="genre">
+                        <option value="">All Genre</option>
                         @foreach ($genres as $genre)
-                            <option value="{{$genre->id}}">
+                            <option value="{{$genre->id}}" @if ($genre->id == (int)$valarr['genre'])  selected @endif>
                                 {{$genre->genre}}
                             </option>
                         @endforeach
                     </select>
                 </div>
                 <div class="search_text">
-                    <input type="text" name="search" id="search" placeholder="Search......">
+                    <input type="text" name="search" id="search" placeholder="Search......" value={{$valarr['text']}}>
                 </div>
             </form>
         </div>
