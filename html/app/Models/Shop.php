@@ -65,7 +65,7 @@ class Shop extends Model
     {
         if ($str != Null)
         {
-            return $query->find($str);
+            return $query->where('id',$str);
         }else{
             return $query;
         }

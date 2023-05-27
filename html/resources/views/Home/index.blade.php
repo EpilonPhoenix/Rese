@@ -66,9 +66,11 @@
                     #{{$shop->area->area}} #{{$shop->genre->genre}}
                 </div>
                 <div class="Buttons layout__center-row">
-                    <button id='button' type="submit">
-                        詳しく見る
-                    </button>
+                    <a href="{{ url('/reserve',[$shop->id]) }}">
+                        <button id='button' type="submit">
+                            詳しく見る
+                        </button>
+                    </a>
                     <div class="favorite">
                         &#9829;
                     </div>

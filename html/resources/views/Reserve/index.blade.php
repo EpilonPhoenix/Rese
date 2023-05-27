@@ -7,12 +7,13 @@
             const Form_date = document.getElementById('Form_date');
             const Form_time = document.getElementById('Form_time');
             const Form_Nop = document.getElementById('Form_Nop');
-            const date = document.getElementById('date');
+            const R_date = document.getElementById('date');
             const time = document.getElementById('time');
             const number = document.getElementById('number');
-    
+            let d = new Date();
+
             function dateChange(){
-                date.innerHTML = Form_date.value;
+                R_date.innerHTML = Form_date.value;
             }
             function timeChange(){
                 time.innerHTML = Form_time.value;
@@ -21,10 +22,22 @@
                 number.innerHTML = Form_Nop.value;
             }
 
+            // 年を取得
+            let year = d.getFullYear();
+            // 月を取得
+            let month = d.getMonth() + 1;
+            // 日を取得
+            let date = d.getDate()+1;
+            // 1桁の場合は0を足して2桁に
+            month = month < 10 ? "0" + month : month;
+            date = date < 10 ? "0" + date : date;
+            let days = `${year}-${month}-${date}`;
+
             Form_date.onchange = dateChange;
             Form_time.onchange = timeChange;
             Form_Nop.onchange = numberChange;
-    
+            Form_date.min = days;
+
         })
         </script>
     
@@ -69,7 +82,7 @@
                     <input type="time" name="time" id="Form_time">
                 </div>
                 <div class="Reserve__NoP">
-                    <input type="number" name="number_of_people" id="Form_Nop">
+                    <input type="number" name="number_of_people" id="Form_Nop" min="1" max="9">
                 </div>
                 <div class="Reserve__remind">
                     <table>

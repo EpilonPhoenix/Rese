@@ -61,7 +61,7 @@ class FortifyServiceProvider extends ServiceProvider
             return view('Login.index');
         });
         #認証コード
-        Fortify::authenticateUsing(function (LoginRequest $request) {
+        Fortify::authenticateUsing(function (Request $request) {
             $user = User::where('email', $request->email)->first();
     
             if ($user &&

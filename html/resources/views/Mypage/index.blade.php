@@ -17,7 +17,7 @@
             </div>
             <?php $i=1; ?>
             @foreach ($reserves as $reserve)
-                <div class="Card">
+                <div class="Reserve_Card">
                     <div class="Card_titile layout__center-row">
                         予約:
                         <?php echo $i; ?>
