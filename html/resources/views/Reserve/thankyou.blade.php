@@ -1,7 +1,7 @@
 @extends('Layouts.app')
 
 @section('Css')
-    <link rel="stylesheet" href="{{ asset('assets/css/Home.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/Register.css') }}" />
 @endsection
 
 @section('pagetitle','Thank you')
@@ -11,9 +11,11 @@
         <div class="Card_text">
             ご予約ありがとうございます
         </div>
-        <div class="Card_link">
-            戻る
-        </div>
+        <a href="{{ route('home') }}">
+            <div class="Card_link">
+                戻る
+            </div>
+        </a>
     </div>
     @if (count($errors) > 0)
         @foreach ($errors->all() as $error)

@@ -1,31 +1,89 @@
+.Contents{
+    width: 90%;
+}
 
-.Login{
-    display: block;
-    margin: 0 auto;
+.Shop__detail{
+    width:45%;
+}
+.Link_And_Name{
+    margin: 0 auto 20px auto;
+    justify-content: start;
+    
+}
+.Shop__detail_link{
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    box-shadow:2px 2px 5px;
+    border-radius: 5px;
+    ;
+}
+.Link_And_Name a{
+    font-size: 32px;
+    color: black;
+}
+
+.Shop__detail_shopname{
+    margin: 0 auto auto 20px;
+    font-size: 32px;
+}
+.Shop__detail__img{
+    width: 100%;
+    margin: 0 auto 20px auto;
+}
+
+.Shop__detail__img img{
+    box-shadow:2px 2px 5px;
     width: 100%;
 }
-.Register_form{
-    width: 100%;
-    height: 36px;
-    margin:  0 auto;
+.Shop__detail_tags{
+    margin: 0 auto 20px auto;
 }
 
-.Register_form input{
-    display: block;
-    margin: 18px 24px 0 auto;
-    border:none;
-    border-bottom: 1px solid;
-    font-size: 18px;
-    width: 70%;
-}
-
-.Register_form button {
-    display: block;
-    margin: 12px 24px 18px auto;
-    font-size: 18px;
-    width: 100px;
-    border:none;
+.Reserve{
+    width: 45%;
     background-color:  #3560f6;
+}
+
+.Reserve form{
+    margin:20px auto auto auto;
+}
+
+.Reserve button{
+    display: block;
+    margin: auto;
+    font-size: 24px;
+    width: 100%;
+    border:none;
+    background-color:  #003ff5;
     color: #fff;
     border-radius: 5px;
+}
+
+.Reserve__titie{
+    margin: 10px auto auto 20px;
+    font-size: 32px;
+    color: white;
+    font-weight: bold;
+}
+
+.Reserve__date{
+    margin:20px auto auto 20px;
+}
+.Reserve__time{
+    margin: 10px auto auto 20px;
+}
+.Reserve__NoP{
+    margin: 10px auto auto 20px;
+}
+
+.Reserve__remind{
+    background-color: #5580f7;
+    border-radius: 5px;
+    padding: 10px;
+
+    margin:20px 20px 220px 20px;
+}
+.Reserve__remind td{
+    color: white;
 }

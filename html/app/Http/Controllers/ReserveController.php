@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Area;
-use App\Models\Genre;
+use App\Models\Reserve;
 use App\Models\Shop;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ReserveRequest;
 
 class ReserveController extends Controller
 {
@@ -12,7 +13,17 @@ class ReserveController extends Controller
     public function index($id)
     {
         $shop = Shop::with('area')->with('genre')->Id($id)->first();
-        return $shop;
+        return view('Reserve.index', compact('shop'));
+    }
+
+    public function post(ReserveRequest $request)
+    {
+        $reserve = new Reserve;
+        $form = $request->all();
+        unset($form['_token']);
+        $form["user_id"]= Auth::id();
+        $reserve->fill($form)->save();
+        return redirect('/reserve/thankyou');
     }
 
     public function thankyou()

@@ -34,7 +34,6 @@ class HomeController extends Controller
         {
             $message="ようこそ、Rese へ";
             $shops = Shop::with('area')->with('genre')->get();
-            // dd($shops);
             return view('Home.index',compact('message','areas','genres','shops','valarr'));
         }
     }

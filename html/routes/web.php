@@ -14,9 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/', [App\Http\Controllers\HomeController::class, 'post']);
+
+Route::get('/reserve/thankyou',[App\Http\Controllers\ReserveController::class, 'thankyou']);
 Route::get('/reserve/{id}',[App\Http\Controllers\ReserveController::class, 'index']);
+Route::post('/reserve',[App\Http\Controllers\ReserveController::class, 'post']);
+
 Route::get('/login', [App\Http\Controllers\LoginController::class, 'index'])->name('login');
 Route::get('/register', [App\Http\Controllers\RegistrationController::class, 'index'])->name('register');
 
-Route::get('/dev', [App\Http\Controllers\RegistrationController::class, 'thankyou']);
+Route::get('/dev', [App\Http\Controllers\ReserveController::class, 'thankyou']);
 
