@@ -17,4 +17,31 @@ class Reserve extends Model
         'time' => 'required',
         'number_of_people' => 'required',
     );
+    public function User()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+    public function Shop()
+    {
+        return $this->belongsTo('App\Models\Shop');
+    }
+
+    public function scopeUser($query, $str)
+    {
+        if ($str != Null)
+        {
+            return $query->where('user_id',$str);
+        }else{
+            return $query;
+        }
+    }
+    public function scopeShop($query, $str)
+    {
+        if ($str != Null)
+        {
+            return $query->where('shop_id',$str);
+        }else{
+            return $query;
+        }
+    }
 }

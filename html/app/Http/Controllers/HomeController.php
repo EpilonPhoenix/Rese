@@ -7,7 +7,7 @@ use App\Models\User;
 use App\Models\Area;
 use App\Models\Genre;
 use App\Models\Shop;
-use SebastianBergmann\Type\NullType;
+
 
 class HomeController extends Controller
 {

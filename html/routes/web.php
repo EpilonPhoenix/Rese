@@ -22,5 +22,7 @@ Route::post('/reserve',[App\Http\Controllers\ReserveController::class, 'post']);
 Route::get('/login', [App\Http\Controllers\LoginController::class, 'index'])->name('login');
 Route::get('/register', [App\Http\Controllers\RegistrationController::class, 'index'])->name('register');
 
-Route::get('/dev', [App\Http\Controllers\ReserveController::class, 'thankyou']);
+Route::get('/mypage', [App\Http\Controllers\MypageController::class, 'index']);
+
+Route::get('/dev', [App\Http\Controllers\MypageController::class, 'index']);
 

@@ -25,7 +25,7 @@
                     @csrf
                     <button class = "nav_contents">Logout</button>
                 </form>
-                <form method="post" action="/mypage">
+                <form method="get" action="/mypage">
                     @csrf
                     <button class = "nav_contents">Mypage</button>
                 </form>

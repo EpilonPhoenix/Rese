@@ -1,0 +1,46 @@
+.message{
+    font-weight: bold;
+    font-size: 32px;
+    margin: 0 auto 20px auto;
+}
+.Card{
+    width: 100%;
+    margin: 0 auto 20px auto;
+    background-color:  #3560f6
+}
+
+.Card_titile{
+    margin: 10px auto auto 10px;
+    font-size: 24px;
+    color: white;
+}
+
+
+.Contents{
+    width: 90%;
+}
+.Reserves{
+    width: 30%;
+}
+.Reserves__title{
+    font-weight: bold;
+    font-size: 24px;
+    margin: 0 auto 20px auto;
+}
+.Reserve__remind{
+    padding: 10px;
+}
+
+.Reserve__remind td{
+    color: white;
+}
+
+
+.Favorites{
+    width:60%;
+}
+
+.Favorites__title{
+    font-weight: bold;
+    font-size: 24px;
+}
