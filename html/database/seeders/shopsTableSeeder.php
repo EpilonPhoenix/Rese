@@ -15,6 +15,7 @@ class ShopsTableSeeder extends Seeder
     public function run()
     {
         $param = [
+            'id' => 'af611d00-e410-4752-b630-57c4302b5c48',
             'area_id' => 1,
             'genre_id' => 1,
             'user_id' => 2,
@@ -24,6 +25,7 @@ class ShopsTableSeeder extends Seeder
         ];
         DB::table('shops')->insert($param);
         $param = [
+            'id' => 'e0ad2f7b-6c88-4850-9e88-610793cf20d9',
             'area_id' => 2,
             'genre_id' => 2,
             'user_id' => 2,
@@ -33,6 +35,7 @@ class ShopsTableSeeder extends Seeder
         ];
         DB::table('shops')->insert($param);
         $param = [
+            'id' => 'd2e85bda-0a88-4867-99e2-265048d68bd8',
             'area_id' => 3,
             'genre_id' => 3,
             'user_id' => 2,
@@ -42,6 +45,7 @@ class ShopsTableSeeder extends Seeder
         ];
         DB::table('shops')->insert($param);
         $param = [
+            'id' => '17236d61-57b2-4fce-93d5-d63516efd72c',
             'area_id' => 1,
             'genre_id' => 4,
             'user_id' => 2,
@@ -51,6 +55,7 @@ class ShopsTableSeeder extends Seeder
         ];
         DB::table('shops')->insert($param);
         $param = [
+            'id' => 'b6527d43-5c3c-4bf3-97c1-ef2430351699',
             'area_id' => 3,
             'genre_id' => 5,
             'user_id' => 2,
@@ -60,6 +65,7 @@ class ShopsTableSeeder extends Seeder
         ];
         DB::table('shops')->insert($param);
         $param = [
+            'id' => 'dc3ae238-3133-49c0-9e87-1a2301fea4d3',
             'area_id' => 1,
             'genre_id' => 2,
             'user_id' => 2,
@@ -69,6 +75,7 @@ class ShopsTableSeeder extends Seeder
         ];
         DB::table('shops')->insert($param);
         $param = [
+            'id' => 'ec325f7b-458b-4291-ac27-d0beef8ec315',
             'area_id' => 2,
             'genre_id' => 4,
             'user_id' => 2,
@@ -78,6 +85,7 @@ class ShopsTableSeeder extends Seeder
         ];
         DB::table('shops')->insert($param);
         $param = [
+            'id' => '4653f44d-cdb1-46fb-8477-6d2cdc470511',
             'area_id' => 1,
             'genre_id' => 5,
             'user_id' => 2,
@@ -87,6 +95,7 @@ class ShopsTableSeeder extends Seeder
         ];
         DB::table('shops')->insert($param);
         $param = [
+            'id' => 'b723525c-0c17-44fe-9bdb-414d6c3d60c6',
             'area_id' => 2,
             'genre_id' => 3,
             'user_id' => 2,
@@ -96,6 +105,7 @@ class ShopsTableSeeder extends Seeder
         ];
         DB::table('shops')->insert($param);
         $param = [
+            'id' => '27e61761-9b29-42ba-81ab-5a44e523de7e',
             'area_id' => 1,
             'genre_id' => 1,
             'user_id' => 2,
@@ -105,6 +115,7 @@ class ShopsTableSeeder extends Seeder
         ];
         DB::table('shops')->insert($param);
         $param = [
+            'id' => 'e45b5cc6-f376-4c9f-97cf-3fc28131f0d2',
             'area_id' => 2,
             'genre_id' => 2,
             'user_id' => 2,
@@ -114,6 +125,7 @@ class ShopsTableSeeder extends Seeder
         ];
         DB::table('shops')->insert($param);
         $param = [
+            'id' => '88aef25f-16c6-45e3-9869-cff250475180',
             'area_id' => 3,
             'genre_id' => 2,
             'user_id' => 2,
@@ -123,6 +135,7 @@ class ShopsTableSeeder extends Seeder
         ];
         DB::table('shops')->insert($param);
         $param = [
+            'id' => '289b83eb-418c-4285-90d9-466877147acd',
             'area_id' => 1,
             'genre_id' => 3,
             'user_id' => 2,
@@ -132,6 +145,7 @@ class ShopsTableSeeder extends Seeder
         ];
         DB::table('shops')->insert($param);
         $param = [
+            'id' => '79d63923-0127-492b-ab3e-6520a7df291c',
             'area_id' => 2,
             'genre_id' => 1,
             'user_id' => 2,
@@ -141,6 +155,7 @@ class ShopsTableSeeder extends Seeder
         ];
         DB::table('shops')->insert($param);
         $param = [
+            'id' => '1f6264ef-422a-4cc9-8d69-eb9e8ef314b8',
             'area_id' => 1,
             'genre_id' => 5,
             'user_id' => 2,
@@ -150,6 +165,7 @@ class ShopsTableSeeder extends Seeder
         ];
         DB::table('shops')->insert($param);
         $param = [
+            'id' => '33978068-c58b-4274-8764-38f53c2be601',
             'area_id' => 2,
             'genre_id' => 3,
             'user_id' => 2,
@@ -159,6 +175,7 @@ class ShopsTableSeeder extends Seeder
         ];
         DB::table('shops')->insert($param);
         $param = [
+            'id' => 'bcd1a650-646e-4f09-a74c-d518f3aaf57f',
             'area_id' => 1,
             'genre_id' => 1,
             'user_id' => 2,
@@ -168,6 +185,7 @@ class ShopsTableSeeder extends Seeder
         ];
         DB::table('shops')->insert($param);
         $param = [
+            'id' => '87e656e1-c404-4133-948a-281c361a1ef4',
             'area_id' => 1,
             'genre_id' => 2,
             'user_id' => 2,
@@ -177,6 +195,7 @@ class ShopsTableSeeder extends Seeder
         ];
         DB::table('shops')->insert($param);
         $param = [
+            'id' => '46995491-e529-4995-9cf5-6b18494b148c',
             'area_id' => 3,
             'genre_id' => 4,
             'user_id' => 2,
@@ -186,6 +205,7 @@ class ShopsTableSeeder extends Seeder
         ];
         DB::table('shops')->insert($param);
         $param = [
+            'id' => '5e54a6c3-fd24-4a00-8660-b874922f3383',
             'area_id' => 2,
             'genre_id' => 1,
             'user_id' => 2,

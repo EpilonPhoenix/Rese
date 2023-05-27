@@ -3,12 +3,22 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Ramsey\Uuid\Uuid;
 use Illuminate\Database\Eloquent\Model;
 
 class Shop extends Model
 {
     use HasFactory;
+    // use HasUuids;
+    public function newUniqueId(): string
+    {
+        return (string) Uuid::uuid4();
+    }
+    
+    protected $primaryKey = 'id';
     protected $guarded = array('id');
+    protected $keyType = 'string';
 
     public static $rules = array(
         'area' => 'required',
@@ -16,7 +26,7 @@ class Shop extends Model
         'owner_id' => 'required',
         'name' => 'required',
     );
-    public function area()
+    public function Area()
     {
         return $this->belongsTo('App\Models\Area');
     }
@@ -51,6 +61,4 @@ class Shop extends Model
             return $query;
         }
     }
-
-
 }

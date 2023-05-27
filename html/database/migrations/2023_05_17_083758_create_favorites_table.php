@@ -17,8 +17,8 @@ class CreateFavoritesTable extends Migration
             $table->id();
             // $table->unsignedBigInteger('user_id');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            // $table->unsignedBigInteger('shop_id');
-            $table->foreignId('shop_id')->constrained()->onDelete('cascade');
+            $table->uuid('shop_id');
+            $table->foreign('shop_id')->references('id')->on('shops');
             $table->timestamps();
         });
     }
