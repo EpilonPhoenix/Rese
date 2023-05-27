@@ -61,4 +61,14 @@ class Shop extends Model
             return $query;
         }
     }
+    public function scopeId($query, $str)
+    {
+        if ($str != Null)
+        {
+            return $query->find($str);
+        }else{
+            return $query;
+        }
+    }
+
 }
