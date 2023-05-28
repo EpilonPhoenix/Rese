@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Hash;
 use Laravel\Fortify\Contracts\LoginResponse;
 use Laravel\Fortify\Contracts\LogoutResponse;
 use App\Models\User;
-use App\Http\Requests\LoginRequest;
+use Laravel\Fortify\Http\Requests\LoginRequest;
 
 
 
@@ -61,7 +61,7 @@ class FortifyServiceProvider extends ServiceProvider
             return view('Login.index');
         });
         #認証コード
-        Fortify::authenticateUsing(function (Request $request) {
+        Fortify::authenticateUsing(function (LoginRequest $request) {
             $user = User::where('email', $request->email)->first();
     
             if ($user &&
