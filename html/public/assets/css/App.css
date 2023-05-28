@@ -103,16 +103,6 @@ a{
 .Buttons{
     margin: 0 auto 5px 15px;
 }
-.Buttons button{
-    display: block;
-    font-size: 12px;
-    width: 100px;
-    border:none;
-    background-color:  #3560f6;
-    color: #fff;
-    border-radius: 5px;
-}
-
 .layout__center {
     display: flex;
     align-items: center;

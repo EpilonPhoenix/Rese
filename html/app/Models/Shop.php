@@ -34,6 +34,10 @@ class Shop extends Model
     {
         return $this->belongsTo('App\Models\Genre');
     }
+    public function Favorite()
+    {
+        return $this->hasOne('App\Models\Favorite');
+    }
     public function scopeArea($query, $str)
     {
         if ($str != Null)

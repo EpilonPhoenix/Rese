@@ -27,19 +27,17 @@ class HomeController extends Controller
             {
                 return view('Home.owner');
             }else
-            $message=$user->name."さん、ようこそ";
-            $shops = Shop::with('area')->with('genre')->get();
-            return view('Home.index',compact('message','areas','genres','shops','valarr'));
+            $shops = Shop::with(['area','genre','favorite'])->get();
+            // dd($shops);
+            return view('Home.index',compact('user','areas','genres','shops','valarr'));
         }else
         {
-            $message="ようこそ、Rese へ";
-            $shops = Shop::with('area')->with('genre')->get();
-            return view('Home.index',compact('message','areas','genres','shops','valarr'));
+            $shops = Shop::with(['area','genre'])->get();
+            return view('Home.index',compact('areas','genres','shops','valarr'));
         }
     }
     public function post(Request $request)
     {
-        // dd($request);
         $valarr = array('area'=>$request->area,'genre'=>$request->genre,'text'=>$request->search);
         $areas = Area::all();
         $genres = Genre::all();
@@ -54,14 +52,12 @@ class HomeController extends Controller
             {
                 return view('Home.owner');
             }else
-            $message=$user->name."さん、ようこそ";
-            $shops = Shop::with('area')->with('genre')->Area($request->area)->Genre($request->genre)->Search($request->search)->get();
-            return view('Home.index',compact('message','areas','genres','shops','valarr'));
+            $shops = Shop::with(['area','genre','favorite'])->Area($request->area)->Genre($request->genre)->Search($request->search)->get();
+            return view('Home.index',compact('user','areas','genres','shops','valarr'));
         }else
         {
-            $message="ようこそ、Rese へ";
-            $shops = Shop::with('area')->with('genre')->Area($request->area)->Genre($request->genre)->Search($request->search)->get();
-            return view('Home.index',compact('message','areas','genres','shops','valarr'));
+            $shops = Shop::with(['area','genre'])->Area($request->area)->Genre($request->genre)->Search($request->search)->get();
+            return view('Home.index',compact('areas','genres','shops','valarr'));
         }
     }
 

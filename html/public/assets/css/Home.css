@@ -81,7 +81,7 @@
 .Buttons{
     margin: 0 auto 5px 15px;
 }
-.Buttons button{
+.detail{
     display: block;
     font-size: 12px;
     width: 100px;
@@ -93,6 +93,12 @@
 
 .favorite{
     color: #E2E2E2;
-    font-size: 18px;
+    font-size: 24px;
     margin: 0 10px 5px auto;
+    border:none;
+    background-color:  white;
+}
+
+.CRed{
+    color: red;
 }

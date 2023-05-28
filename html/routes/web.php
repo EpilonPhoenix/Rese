@@ -16,6 +16,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::post('/', [App\Http\Controllers\HomeController::class, 'post']);
 
 Route::get('/reserve/thankyou',[App\Http\Controllers\ReserveController::class, 'thankyou']);
+Route::post('/reserve/delete',[App\Http\Controllers\ReserveController::class, 'delete']);
 Route::get('/reserve/{id}',[App\Http\Controllers\ReserveController::class, 'index']);
 Route::post('/reserve',[App\Http\Controllers\ReserveController::class, 'post']);
 
@@ -23,6 +24,8 @@ Route::get('/login', [App\Http\Controllers\LoginController::class, 'index'])->na
 Route::get('/register', [App\Http\Controllers\RegistrationController::class, 'index'])->name('register');
 
 Route::get('/mypage', [App\Http\Controllers\MypageController::class, 'index']);
+
+Route::post('/favorite', [App\Http\Controllers\FavoriteController::class, 'post']);
 
 Route::get('/dev', [App\Http\Controllers\MypageController::class, 'index']);
 

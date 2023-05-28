@@ -22,7 +22,11 @@
 @section('contents')
     <div class="messageAndSearchbar layout__center-row">
         <div class="message">
-            {{$message}}
+            @if (Auth::check())
+            {{$user->name}}さん、ようこそ
+            @else
+            ようこそ、Rese へ
+            @endif
         </div>
         <div class="searchbar">
             <form method="POST" action="/" class="layout__center-row" id = "searchbar">
@@ -67,17 +71,34 @@
                 </div>
                 <div class="Buttons layout__center-row">
                     <a href="{{ url('/reserve',[$shop->id]) }}">
-                        <button id='button' type="submit">
+                        <button id='button' type="submit" class="detail">
                             詳しく見る
                         </button>
                     </a>
-                    <div class="favorite">
-                        &#9829;
+                    <div>
+                        @if (Auth::check())
+                        <form action="/favorite" method="post">
+                            @csrf
+                            <input type="hidden" name="shop_id" value="{{$shop->id}}">
+                            @if ($shop->favorite !=Null)
+                            <button class="favorite CRed">
+                                &#9829;
+                            </button>
+                            @else
+                            <button class="favorite">
+                                &#9829;
+                            </button>
+                            @endif
+                        </form>
+                        @else
+                        <button class="favorite" disabled>
+                            &#9829;
+                        </button>
+                    @endif
                     </div>
                 </div>
             </div>
         @endforeach
-    
     </div>
     @if (count($errors) > 0)
         @foreach ($errors->all() as $error)
