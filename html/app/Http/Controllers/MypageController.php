@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Reserve;
+use App\Models\Favorite;
+
 use Illuminate\Http\Request;
 
 class MypageController extends Controller
@@ -12,7 +14,7 @@ class MypageController extends Controller
     {
         $user = User::IdEq(Auth::id())->first();
         $reserves = Reserve::with('shop')->User($user->id)->get();
-        // dd($reserves);
-        return view('Mypage.index',compact('user','reserves'));
+        $favoriteShops = Favorite::with('shop','shop.area','shop.genre')->get();
+        return view('Mypage.index',compact('user','reserves','favoriteShops'));
     }
 }

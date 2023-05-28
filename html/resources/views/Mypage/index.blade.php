@@ -81,7 +81,38 @@
             @endforeach
         </div>
         <div class="Favorites">
-        </div>
+            <div class="Cards">
+                @foreach ($favoriteShops as $shop)
+                    <div class="Card">
+                        <div class="Card_img">
+                            <img src="{{ url('storage/images/',[$shop->shop->id,$shop->shop->picture]) }}">
+                        </div>
+                        <div class="Card_ShopName">
+                            {{$shop->shop->name}}
+                        </div>
+                        <div class="Tags">
+                            #{{$shop->shop->area->area}} #{{$shop->shop->genre->genre}}
+                        </div>
+                        <div class="Buttons layout__center-row">
+                            <a href="{{ url('/reserve',[$shop->shop->id]) }}">
+                                <button id='button' type="submit" class="detail">
+                                    詳しく見る
+                                </button>
+                            </a>
+                            <div>
+                                <form action="/favorite" method="post">
+                                    @csrf
+                                    <input type="hidden" name="shop_id" value="{{$shop->shop->id}}">
+                                    <button class="favorite CRed">
+                                        &#9829;
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+                </div>
     </div>
     @if (count($errors) > 0)
         @foreach ($errors->all() as $error)

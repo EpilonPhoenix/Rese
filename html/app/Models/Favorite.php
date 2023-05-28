@@ -21,7 +21,12 @@ class Favorite extends Model
             $builder->where('user_id',$user_id);
         });
     }
-    public function scopeShop($query, $str)
+    public function Shop()
+    {
+        return $this->belongsTo('App\Models\Shop');
+    }
+
+    public function scopeShopId($query, $str)
     {
         if ($str != Null)
         {

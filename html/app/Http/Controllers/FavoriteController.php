@@ -12,8 +12,7 @@ class FavoriteController extends Controller
 {
     public function post(Request $request)
     {
-        $favorite=Favorite::shop($request->shop_id)->first();
-        // dd($favorite != Null);
+        $favorite=Favorite::shopId($request->shop_id)->first();
         if ($favorite != Null)
         {
             $favorite->delete();
