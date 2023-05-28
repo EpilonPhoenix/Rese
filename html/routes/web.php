@@ -24,7 +24,7 @@ Route::post('/reserve',[App\Http\Controllers\ReserveController::class, 'post']);
 Route::get('/login', [App\Http\Controllers\LoginController::class, 'index'])->name('login');
 Route::get('/register', [App\Http\Controllers\RegistrationController::class, 'index'])->name('register');
 
-Route::get('/mypage', [App\Http\Controllers\MypageController::class, 'index']);
+Route::get('/mypage', [App\Http\Controllers\MypageController::class, 'index'])->name('mypage');
 
 Route::post('/favorite', [App\Http\Controllers\FavoriteController::class, 'post']);
 

@@ -25,10 +25,9 @@
                     @csrf
                     <button class = "nav_contents">Logout</button>
                 </form>
-                <form method="get" action="/mypage">
-                    @csrf
-                    <button class = "nav_contents">Mypage</button>
-                </form>
+                <div class="nav_contents">
+                    <a href="{{ route('mypage') }}">Mypage</a>
+                </div>
             @else
                 <div class="nav_contents">
                     <a href="{{ route('home') }}">Home</a>

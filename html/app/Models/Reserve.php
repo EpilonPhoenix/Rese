@@ -13,6 +13,7 @@ class Reserve extends Model
     public static $rules = array(
         'user_id' => 'required',
         'shop_id' => 'required',
+        'reservationstatus_id' => 'required',
         'date' => 'required',
         'time' => 'required',
         'number_of_people' => 'required',
