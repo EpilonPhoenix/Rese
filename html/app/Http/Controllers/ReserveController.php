@@ -13,17 +13,34 @@ class ReserveController extends Controller
     public function index($id)
     {
         $shop = Shop::with('area')->with('genre')->Id($id)->first();
-        return view('Reserve.index', compact('shop'));
+        $reserve =Null;
+        return view('Reserve.index', compact('shop','reserve'));
+    }
+    public function edit($id,Request $request)
+    {
+        $shop = Shop::with('area')->with('genre')->Id($id)->first();
+        $reserve =Reserve::Id($request->id)->first();
+        return view('Reserve.index', compact('shop','reserve'));
     }
 
     public function post(ReserveRequest $request)
     {
-        $reserve = new Reserve;
-        $form = $request->all();
-        unset($form['_token']);
-        $form["user_id"]= Auth::id();
-        $reserve->fill($form)->save();
-        return redirect('/reserve/thankyou');
+        if ($request->id !=Null)
+        {
+            $reserve = Reserve::Id($request->id);
+            $form = $request->all();
+            unset($form['_token']);
+            $form["user_id"]= Auth::id();
+            $reserve->fill($form)->save();
+            return redirect('/reserve/thankyou');
+        }else{
+            $reserve = new Reserve;
+            $form = $request->all();
+            unset($form['_token']);
+            $form["user_id"]= Auth::id();
+            $reserve->fill($form)->save();
+            return redirect('/reserve/thankyou');
+        }
     }
 
     public function thankyou()

@@ -38,6 +38,21 @@
 .Reserves{
     width: 30%;
 }
+.Reserve_fix{
+    margin: auto auto auto 20px;
+}
+
+.Reserve_fix button{
+    display: block;
+    width: 36px;
+    height: 36px;
+    font-size: 24px;
+    background-color:  #3560f6;
+    color: #fff;
+    border: none;
+}
+
+
 .Reserves__title{
     font-weight: bold;
     font-size: 24px;

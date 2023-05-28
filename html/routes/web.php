@@ -18,6 +18,7 @@ Route::post('/', [App\Http\Controllers\HomeController::class, 'post']);
 Route::get('/reserve/thankyou',[App\Http\Controllers\ReserveController::class, 'thankyou']);
 Route::post('/reserve/delete',[App\Http\Controllers\ReserveController::class, 'delete']);
 Route::get('/reserve/{id}',[App\Http\Controllers\ReserveController::class, 'index']);
+Route::post('/reserve/{id}',[App\Http\Controllers\ReserveController::class, 'edit']);
 Route::post('/reserve',[App\Http\Controllers\ReserveController::class, 'post']);
 
 Route::get('/login', [App\Http\Controllers\LoginController::class, 'index'])->name('login');

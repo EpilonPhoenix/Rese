@@ -74,61 +74,124 @@
             </div>
             <form action="/reserve" method="post">
                 @csrf
-                <input type="hidden" name="shop_id" value="{{$shop->id}}">
-                <div class="Reserve__date">
-                    <input type="date" name="date" id="Form_date">
-                </div>
-                <div class="Reserve__time">
-                    <input type="time" name="time" id="Form_time">
-                </div>
-                <div class="Reserve__NoP">
-                    <input type="number" name="number_of_people" id="Form_Nop" min="1" max="9">
-                </div>
-                <div class="Reserve__remind">
-                    <table>
-                        <tr>
-                            <td>
-                                Shop
-                            </td>
-                            <td>
-                                {{$shop->name}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Date
-                            </td>
-                            <td id="date">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Time
-                            </td>
-                            <td id="time">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Number
-                            </td>
-                            <td id="number">
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                @if (Auth::check())
-                <button id='button' type="submit">
-                    <div class="reserve__button">
-                        予約する
+                    @if ($reserve != Null)
+                    <input type="hidden" name="id" value="{{$reserve->id}}">
+                    <input type="hidden" name="shop_id" value="{{$shop->id}}">
+                    <div class="Reserve__date">
+                        <input type="date" name="date" id="Form_date" value ="{{$reserve->date}}">
                     </div>
-                </button>
-                @else
-                <button id='button' type="submit" disabled>
-                    <div class="reserve__button">
-                        ログインして下さい
+                    <div class="Reserve__time">
+                        <input type="time" name="time" id="Form_time" value ="{{$reserve->time}}">
                     </div>
-                </button>
+                    <div class="Reserve__NoP">
+                        <input type="number" name="number_of_people" id="Form_Nop" min="1" max="9" value ="{{$reserve->number_of_people}}">
+                    </div>
+                    <div class="Reserve__remind">
+                        <table>
+                            <tr>
+                                <td>
+                                    Shop
+                                </td>
+                                <td>
+                                    {{$shop->name}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Date
+                                </td>
+                                <td id="date">
+                                    {{$reserve->date}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Time
+                                </td>
+                                <td id="time">
+                                    {{$reserve->time}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Number
+                                </td>
+                                <td id="number">
+                                    {{$reserve->number_of_people}}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    @if (Auth::check())
+                    <button id='button' type="submit">
+                        <div class="reserve__button">
+                            予約を変更する
+                        </div>
+                    </button>
+                    @else
+                    <button id='button' type="submit" disabled>
+                        <div class="reserve__button">
+                            ログインして下さい
+                        </div>
+                    </button>
+                    @endif
+                    @else
+                    <input type="hidden" name="shop_id" value="{{$shop->id}}">
+                    <div class="Reserve__date">
+                        <input type="date" name="date" id="Form_date">
+                    </div>
+                    <div class="Reserve__time">
+                        <input type="time" name="time" id="Form_time">
+                    </div>
+                    <div class="Reserve__NoP">
+                        <input type="number" name="number_of_people" id="Form_Nop" min="1" max="9">
+                    </div>
+                    <div class="Reserve__remind">
+                        <table>
+                            <tr>
+                                <td>
+                                    Shop
+                                </td>
+                                <td>
+                                    {{$shop->name}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Date
+                                </td>
+                                <td id="date">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Time
+                                </td>
+                                <td id="time">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Number
+                                </td>
+                                <td id="number">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    @if (Auth::check())
+                    <button id='button' type="submit">
+                        <div class="reserve__button">
+                            予約する
+                        </div>
+                    </button>
+                    @else
+                    <button id='button' type="submit" disabled>
+                        <div class="reserve__button">
+                            ログインして下さい
+                        </div>
+                    </button>
+                    @endif
                 @endif
             </form>
         </div>

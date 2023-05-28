@@ -18,9 +18,6 @@ use Laravel\Fortify\Contracts\LogoutResponse;
 use App\Models\User;
 use Laravel\Fortify\Http\Requests\LoginRequest;
 
-
-
-
 class FortifyServiceProvider extends ServiceProvider
 {
     /**

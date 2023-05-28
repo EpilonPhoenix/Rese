@@ -25,11 +25,20 @@
             @foreach ($reserves as $reserve)
                 <div class="Reserve_Card">
                     <div class="layout__center-row">
+                        <div class="Reserve_fix">
+                            <form action="{{ url('/reserve',[$reserve->shop->id]) }}" method="post">
+                                @csrf
+                                <input type="hidden" name="id" value="{{$reserve->id}}">
+                                <button type="submit">
+                                    &#x21BB;
+                                </button>
+                            </form>
+                        </div>
+
                         <div class="Card_titile">
                             予約:
                             <?php echo $i; ?>
                         </div>
-                        
                         <div class="Reserve_delete">
                             <form action="/reserve/delete" method="post">
                                 @csrf
