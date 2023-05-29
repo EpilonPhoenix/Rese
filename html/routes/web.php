@@ -12,8 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+#ホーム
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/', [App\Http\Controllers\HomeController::class, 'post']);
+#予約
 Route::middleware('auth')->group(function () {
     Route::get('/reserve/thankyou',[App\Http\Controllers\ReserveController::class, 'thankyou']);
 });
@@ -23,18 +25,27 @@ Route::middleware('auth')->group(function () {
 Route::get('/reserve/{id}',[App\Http\Controllers\ReserveController::class, 'index']);
 Route::post('/reserve/{id}',[App\Http\Controllers\ReserveController::class, 'edit']);
 Route::post('/reserve',[App\Http\Controllers\ReserveController::class, 'post']);
-
+#ログイン関連
 Route::get('/login', [App\Http\Controllers\LoginController::class, 'index'])->name('login');
 Route::get('/register', [App\Http\Controllers\RegistrationController::class, 'index'])->name('register');
+#マイページ
 Route::middleware('auth')->group(function () {
     Route::get('/mypage', [App\Http\Controllers\MypageController::class, 'index'])->name('mypage');
 });
+#お気に入り
 Route::middleware('auth')->group(function () {
     Route::post('/favorite', [App\Http\Controllers\FavoriteController::class, 'post']);
 });
-
+#レビュー投稿
+Route::middleware('auth')->group(function () {
+    Route::get('/review/thankyou',[App\Http\Controllers\ReviewController::class, 'thankyou']);
+});
 Route::middleware('auth')->group(function () {
     Route::get('/review/{id}',[App\Http\Controllers\ReviewController::class, 'index']);
 });
+Route::middleware('auth')->group(function () {
+    Route::post('/review',[App\Http\Controllers\ReviewController::class, 'post']);
+});
+
 
 Route::get('/dev', [App\Http\Controllers\ReviewController::class, 'index']);

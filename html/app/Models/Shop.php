@@ -73,5 +73,15 @@ class Shop extends Model
             return $query;
         }
     }
+    public function scopeOwner($query, $str)
+    {
+        if ($str != Null)
+        {
+            return $query->where('user_id',$str);
+        }else{
+            return $query;
+        }
+    }
+
 
 }

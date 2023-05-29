@@ -38,7 +38,8 @@
                     clicked = true;
                     for (let j = 0; j <= i; j++) {
                     stars[j].style.color = "#f0da61";
-                    rate.value = i+1;
+                    i+1;
+                    rate.value = (i+1).toString();
                     }
                     for (let j = i + 1; j < stars.length; j++) {
                     stars[j].style.color = "#a09a9a";
@@ -102,14 +103,16 @@
         </div>
     </div>
     <div class="Review layout__center">
-        <form class="layout__center" action="" method="post">
+        <form class="layout__center" action="/review" method="post">
+            @csrf
+            <input type="hidden" name="shop_id" value="{{$reserve->shop->id}}">
             <div class='Rating'>
             <span class="star" id="1">★</span>
             <span class="star" id="2">★</span>
             <span class="star" id="3">★</span>
             <span class="star" id="4">★</span>
             <span class="star" id="5">★</span>
-            <input type="hidden" id="evaluate" value="0">
+            <input type="hidden" name="evaluate" id="evaluate" value="">
             </div>
             <div class="layout__center">
             <input type="text" name="comments" class="Review__comments" placeholder="Comments...">

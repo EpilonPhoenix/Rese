@@ -25,7 +25,8 @@ class HomeController extends Controller
                 return view('Home.admin');
             }elseif ($user->role_id == 2)
             {
-                return view('Home.owner');
+                $shops = Shop::with(['area','genre','favorite'])->Owner($user->id)->get();
+                return view('Home.owner',compact('user','areas','genres','shops','valarr'));
             }else
             $shops = Shop::with(['area','genre','favorite'])->get();
             // dd($shops);
@@ -50,7 +51,8 @@ class HomeController extends Controller
                 return view('Home.admin');
             }elseif ($user->role_id == 2)
             {
-                return view('Home.owner');
+                $shops = Shop::with(['area','genre','favorite'])->Owner($user->id)->Area($request->area)->Genre($request->genre)->Search($request->search)->get();
+                return view('Home.owner',compact('user','areas','genres','shops','valarr'));
             }else
             $shops = Shop::with(['area','genre','favorite'])->Area($request->area)->Genre($request->genre)->Search($request->search)->get();
             return view('Home.index',compact('user','areas','genres','shops','valarr'));
