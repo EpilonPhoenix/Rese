@@ -6,6 +6,7 @@ use App\Models\Shop;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\ReserveRequest;
+use Ramsey\Uuid\Uuid;
 
 class ReserveController extends Controller
 {
@@ -37,6 +38,7 @@ class ReserveController extends Controller
             $reserve = new Reserve;
             $form = $request->all();
             unset($form['_token']);
+            $form["id"]= Uuid::uuid7()->toString();
             $form["user_id"]= Auth::id();
             $reserve->fill($form)->save();
             return redirect('/reserve/thankyou');

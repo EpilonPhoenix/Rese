@@ -4,13 +4,27 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Ramsey\Uuid\Uuid;
+
 
 class Reserve extends Model
 {
     use HasFactory;
-    protected $guarded = array('id');
+
+    public function newUniqueId(): string
+    {
+        return (string) Uuid::uuid7();
+    }
+    public function uniqueIds()
+    {
+        return ['id'];
+    }
+    protected $primaryKey = 'id';
+    protected $fillable = ['id','user_id','shop_id','reservationstatus_id','date','time','number_of_people'];
+    protected $keyType = 'string';
 
     public static $rules = array(
+        'id' => 'required',
         'user_id' => 'required',
         'shop_id' => 'required',
         'reservationstatus_id' => 'required',

@@ -3,14 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Ramsey\Uuid\Uuid;
 use Illuminate\Database\Eloquent\Model;
 
 class Shop extends Model
 {
     use HasFactory;
-    // use HasUuids;
+    // use HasUniqueids;
     public function newUniqueId(): string
     {
         return (string) Uuid::uuid4();

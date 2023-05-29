@@ -70,7 +70,7 @@
                         Shop
                     </td>
                     <td>
-                        {{-- {{$reserve->shop->name}} --}}
+                        {{$reserve->shop->name}}
                     </td>
                 </tr>
                 <tr>
@@ -78,7 +78,7 @@
                         Date
                     </td>
                     <td id="date">
-                        {{-- {{$reserve->date}} --}}
+                        {{$reserve->date}}
                     </td>
                 </tr>
                 <tr>
@@ -86,7 +86,7 @@
                         Time
                     </td>
                     <td id="time">
-                        {{-- {{$reserve->time}} --}}
+                        {{$reserve->time}}
                     </td>
                 </tr>
                 <tr>
@@ -94,7 +94,7 @@
                         Number
                     </td>
                     <td id="number">
-                        {{-- {{$reserve->number_of_people}} --}}
+                        {{$reserve->number_of_people}}
                     </td>
                 </tr>
             </table>
