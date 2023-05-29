@@ -1,0 +1,60 @@
+.message{
+    font-weight: bold;
+    font-size: 24px;
+    margin: 0 auto 20px auto;
+}
+.star {
+    font-size: 300%;
+    color: #a09a9a;
+}
+
+.Reserve__remind{
+    background-color: #5580f7;
+    border-radius: 5px;
+    padding: 10px;
+    margin:20px 20px 20px 20px;
+}
+.Reserve__remind td{
+    color: white;
+}
+
+.Review{
+    width: 80%;
+}
+.Review form{
+    width: 100%;
+}
+.Rating{
+    margin: 0 auto 20px auto;
+}
+.Reserve_Card{
+    width: 40%;
+    height: 250px;
+    margin: 0 auto 20px auto;
+    border-radius: 5px  5px 0 0;
+    box-shadow:2px 2px 5px;
+    background-color:  #3560f6
+}
+
+.Card_titile{
+    margin: 10px auto auto 10px;
+    font-size: 24px;
+    color: white;
+}
+
+.Review__comments{
+    size: 40;
+    width: 400px;
+    margin:0 auto 20px
+}
+
+.Submit button{
+    display: block;
+    margin: auto;
+    font-size: 24px;
+    width: 100%;
+    border:none;
+    background-color:  #003ff5;
+    color: #fff;
+    border-radius: 5px;
+}

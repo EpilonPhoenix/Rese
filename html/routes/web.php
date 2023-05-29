@@ -28,5 +28,5 @@ Route::get('/mypage', [App\Http\Controllers\MypageController::class, 'index'])->
 
 Route::post('/favorite', [App\Http\Controllers\FavoriteController::class, 'post']);
 
-Route::get('/dev', [App\Http\Controllers\MypageController::class, 'index']);
+Route::get('/dev', [App\Http\Controllers\ReviewController::class, 'index']);
 
