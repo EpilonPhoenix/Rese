@@ -42,38 +42,22 @@
                     </div>
                 </a>
                 <div class="Shop__detail_shopname">
-                    {{$shop->name}}
+                    
                 </div>
             </div>
             <div class="Shop__detail__img">
-                <img src="{{ url('storage/images/',[$shop->id,$shop->picture]) }}">
             </div>
             <div class="Shop__detail_tags">
-                #{{$shop->area->area}} #{{$shop->genre->genre}}
             </div>
             <div class="about">
-                {{$shop->about}}
             </div>
         </div>
         <div class="Reserve Card">
-            <div class="layout__center-row">
-                <div class="Reserve__titie">
-                    店舗情報の編集
-                </div>
-                <div class="Reserve_delete">
-                    <form action="/shopmanage/delete" method="post">
-                        @csrf
-                        <input type="hidden" name="id" value="{{$shop->id}}">
-                        <button type="submit">
-                            ×
-                        </button>
-                    </form>
-                </div>
+            <div class="Reserve__titie">
+                新規店舗の作成
             </div>
             <form action="/shopmanage" method="post" enctype="multipart/form-data">
                 @csrf
-                    {{-- @if ($shop != Null) --}}
-                    <input type="hidden" name="id" value="{{$shop->id}}">
                     <input type="hidden" name="user_id" value="{{Auth::id()}}">
                     <div class="Reserve__remind">
                         <table>
@@ -82,7 +66,7 @@
                                     ShopName
                                 </td>
                                 <td>
-                                    <input type="text" name="name" value ="{{$shop->name}}">
+                                    <input type="text" name="name">
                                 </td>
                             </tr>
                             <tr>
@@ -93,7 +77,7 @@
                                     <select name="area_id" id="area">
                                         <option value="">All Area</option>
                                         @foreach ($areas as $area)
-                                            <option value="{{$area->id}}" @if ($area->id == $shop->area_id)  selected @endif>
+                                            <option value="{{$area->id}}">
                                                 {{$area->area}}
                                             </option>
                                         @endforeach
@@ -109,7 +93,7 @@
                                         <select name="genre_id" id="genre">
                                             <option value="">All Genre</option>
                                             @foreach ($genres as $genre)
-                                                <option value="{{$genre->id}}" @if ($genre->id == $shop->genre_id)  selected @endif>
+                                                <option value="{{$genre->id}}">
                                                     {{$genre->genre}}
                                                 </option>
                                             @endforeach
@@ -122,7 +106,7 @@
                                     About
                                 </td>
                                 <td>
-                                    <textarea name="about" cols="30" rows="6">{{$shop->about}}</textarea>
+                                    <textarea name="about" cols="30" rows="6" placeholder="About......"></textarea>
                                 </td>
                             </tr>
                             <tr>
@@ -137,7 +121,7 @@
                     </div>
                     <button id='button' type="submit">
                         <div class="reserve__button">
-                            店舗情報を編集する
+                            店舗情報を作成する
                         </div>
                     </button>
             </form>

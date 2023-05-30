@@ -87,3 +87,19 @@
 .Reserve__remind td{
     color: white;
 }
+
+.Reserve_delete{
+    margin: auto 20px auto auto;
+}
+.Reserve_delete button{
+    display: block;
+    width: 36px;
+    height: 36px;
+    font-size: 24px;
+    background-color:  #3560f6;
+    color: #fff;
+    border: solid 2px;
+    border-radius: 24px;
+    border-color: #fff;
+
+}

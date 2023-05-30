@@ -46,9 +46,15 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::post('/review',[App\Http\Controllers\ReviewController::class, 'post']);
 });
-
+#店舗管理
+Route::middleware('auth')->group(function () {
+    Route::post('/shopmanage/delete', [App\Http\Controllers\ShopmanageController::class, 'delete']);
+});
 Route::middleware('auth')->group(function () {
     Route::get('/shopmanage/{id}', [App\Http\Controllers\ShopmanageController::class, 'index']);
+});
+Route::middleware('auth')->group(function () {
+    Route::get('/shopmanage', [App\Http\Controllers\ShopmanageController::class, 'create'])->name('createShop');
 });
 Route::middleware('auth')->group(function () {
     Route::post('/shopmanage', [App\Http\Controllers\ShopmanageController::class, 'post']);

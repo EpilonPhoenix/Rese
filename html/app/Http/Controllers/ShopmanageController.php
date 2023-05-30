@@ -24,6 +24,12 @@ class ShopmanageController extends Controller
             return redirect('login');
         }
     }
+    public function create()
+    {
+        $areas = Area::all();
+        $genres = Genre::all();
+        return view('Shopmanage.create',compact('areas','genres'));
+    }
 
     public function post(ShopRequest $request)
     {
@@ -43,7 +49,7 @@ class ShopmanageController extends Controller
             $shop->fill($form)->save();
             return redirect(url('/shopmanage',[$shop->id]));
         }else{
-            $shop = new Reserve;
+            $shop = new Shop;
             $form = $request->all();
             unset($form['_token']);
             $form["id"]= Uuid::uuid7()->toString();
@@ -56,7 +62,15 @@ class ShopmanageController extends Controller
                 $form["picture"]=$file_name;
             }
             $shop->fill($form)->save();
-            return redirect(url('/shopmanage',[$shop->id]));
+            return redirect(url('/shopmanage',[$form["id"]]));
         }
     }
+    public function delete(Request $request)
+    {
+        $dir = 'public/images/'.$request->id;
+        Storage::deleteDirectory($dir);
+        Shop::Id($request->id)->first()->delete();
+        return redirect('/mypage');
+    }
+
 }
