@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ShopRequest;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Shop;
 use App\Models\Area;
 use App\Models\Genre;
@@ -31,6 +32,14 @@ class ShopmanageController extends Controller
             $shop = Shop::Id($request->id)->first();
             $form = $request->all();
             unset($form['_token']);
+            if ($form['picture'] != Null)
+            {
+                $dir = 'public/images/'.$form['id'];
+                Storage::deleteDirectory($dir);
+                $file_name = $request->file('picture')->getClientOriginalName();
+                $request->file('picture')->storeAs($dir, $file_name);
+                $form["picture"]=$file_name;
+            }
             $shop->fill($form)->save();
             return redirect(url('/shopmanage',[$shop->id]));
         }else{
@@ -38,6 +47,14 @@ class ShopmanageController extends Controller
             $form = $request->all();
             unset($form['_token']);
             $form["id"]= Uuid::uuid7()->toString();
+            if ($form['picture'] != Null)
+            {
+                $dir = 'public/images/'.$form['id'];
+                Storage::deleteDirectory($dir);
+                $file_name = $request->file('picture')->getClientOriginalName();
+                $request->file('picture')->storeAs($dir, $file_name);
+                $form["picture"]=$file_name;
+            }
             $shop->fill($form)->save();
             return redirect(url('/shopmanage',[$shop->id]));
         }
