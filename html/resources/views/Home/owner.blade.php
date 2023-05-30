@@ -59,7 +59,7 @@
         @foreach ($shops as $shop)
             <div class="Card">
                 <div class="Card_img">
-                    <img src="{{ url('storage/images/',[$shop->id,$shop->picture]) }}">
+                    <img src="{{ ('storage/images/',[$shop->id,$shop->picture]) }}">
                 </div>
                 <div class="Card_ShopName">
                     {{$shop->name}}
@@ -68,14 +68,14 @@
                     #{{$shop->area->area}} #{{$shop->genre->genre}}
                 </div> --}}
                 <div class="Buttons layout__center">
-                    <a href="{{ url('/reserve',[$shop->id]) }}">
+                    <a href="{{ ('/reserve',[$shop->id]) }}">
                         <button id='button' type="submit" class="detail">
                             予約の確認
                         </button>
                     </a>
                 </div>
                 <div class="Buttons layout__center">
-                        <a href="{{ url('/reserve',[$shop->id]) }}">
+                        <a href="{{ ('/reserve',[$shop->id]) }}">
                         <button id='button' type="submit" class="detail">
                             店舗情報の編集
                         </button>

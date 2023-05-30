@@ -87,7 +87,7 @@
                     <div class="Reserve__NoP">
                         <input type="number" name="number_of_people" id="Form_Nop" min="1" max="9" value ="{{$reserve->number_of_people}}">
                     </div>
-                    <div class="Reserve__remind">
+                    <div class="Reserve__remind" margin-bottom="220">
                         <table>
                             <tr>
                                 <td>

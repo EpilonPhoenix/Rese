@@ -9,20 +9,22 @@ use Illuminate\Database\Eloquent\Model;
 class Shop extends Model
 {
     use HasFactory;
-    // use HasUniqueids;
     public function newUniqueId(): string
     {
-        return (string) Uuid::uuid4();
+        return (string) Uuid::uuid7();
     }
-    
+    public function uniqueIds()
+    {
+        return ['id'];
+    }
     protected $primaryKey = 'id';
-    protected $guarded = array('id');
+    protected $fillable = ['id','area_id','genre_id','user_id','date','time','name','about','picture'];
     protected $keyType = 'string';
 
     public static $rules = array(
-        'area' => 'required',
-        'genre' => 'required',
-        'owner_id' => 'required',
+        'area_id' => 'required',
+        'genre_id' => 'required',
+        'user_id' => 'required',
         'name' => 'required',
     );
     public function Area()

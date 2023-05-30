@@ -47,5 +47,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/review',[App\Http\Controllers\ReviewController::class, 'post']);
 });
 
+Route::middleware('auth')->group(function () {
+    Route::get('/shopmanage/{id}', [App\Http\Controllers\ShopmanageController::class, 'index']);
+});
+Route::middleware('auth')->group(function () {
+    Route::post('/shopmanage', [App\Http\Controllers\ShopmanageController::class, 'post']);
+});
 
-Route::get('/dev', [App\Http\Controllers\ReviewController::class, 'index']);
+
+
+Route::get('/dev/{id}', [App\Http\Controllers\ShopmanageController::class, 'index']);
