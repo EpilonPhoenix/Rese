@@ -60,4 +60,11 @@ class ReserveController extends Controller
         $reserves = Reserve::with(['user'])->Shop($shop_id)->get();
         return view('Reserve.booking', compact('shop','reserves'));
     }
+    public function book_post($shop_id, Request $request)
+    {
+        $shop = Shop::with(['area','genre'])->Id($shop_id)->first();
+        $reserves = Reserve::with(['user'])->Shop($shop_id)->Date($request->date)->get();
+        return view('Reserve.booking', compact('shop','reserves'));
+    }
+
 }

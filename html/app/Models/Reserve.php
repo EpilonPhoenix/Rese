@@ -72,5 +72,14 @@ class Reserve extends Model
             return $query;
         }
     }
+    public function scopeDate($query, $str)
+    {
+        if ($str != Null)
+        {
+            return $query->where('date',$str);
+        }else{
+            return $query;
+        }
+    }
 
 }

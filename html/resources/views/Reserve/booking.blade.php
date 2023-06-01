@@ -34,7 +34,7 @@
         </form>
     </div>
 </div>
-<div class="layout__center">
+<div class="Reserves layout__center">
     <table>
         <tr>
             <th>
@@ -56,19 +56,19 @@
         @foreach ($reserves as $reserve)
         <tr>
             <td>
-                Name
+                {{$reserve->user->name}} 様
             </td>
             <td>
-                Date
+                {{$reserve->date}}
             </td>
             <td>
-                Time
+                {{$reserve->time}}
             </td>
             <td>
-                Number
+                {{$reserve->number_of_people}}
             </td>
             <td>
-                Status
+                {{$reserve->reservationstatuses_id}}
             </td>
         </tr>
         @endforeach
