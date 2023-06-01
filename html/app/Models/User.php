@@ -56,5 +56,8 @@ class User extends Authenticatable
     public function scopeIdEq($query, $str){
         $query->select('id','role_id','name')->find($str);
     }
+    public function scopeRoleIq($query, $str){
+        $query->where('role_id',$str)->get();
+    }
 
 }

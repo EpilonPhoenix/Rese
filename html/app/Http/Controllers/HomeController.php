@@ -21,8 +21,8 @@ class HomeController extends Controller
             $user = User::IdEq(Auth::id())->first();
             if ($user->role_id == 1)
             {
-                $message=$user->name;
-                return view('Home.admin');
+                $shops = Shop::with(['area','genre','favorite'])->get();
+                return view('Home.owner',compact('user','areas','genres','shops','valarr'));
             }elseif ($user->role_id == 2)
             {
                 $shops = Shop::with(['area','genre','favorite'])->Owner($user->id)->get();
@@ -47,8 +47,8 @@ class HomeController extends Controller
             $user = User::IdEq(Auth::id())->first();
             if ($user->role_id == 1)
             {
-                $message=$user->name;
-                return view('Home.admin');
+                $shops = Shop::with(['area','genre','favorite'])->Area($request->area)->Genre($request->genre)->Search($request->search)->get();
+                return view('Home.owner',compact('user','areas','genres','shops','valarr'));
             }elseif ($user->role_id == 2)
             {
                 $shops = Shop::with(['area','genre','favorite'])->Owner($user->id)->Area($request->area)->Genre($request->genre)->Search($request->search)->get();

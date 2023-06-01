@@ -38,7 +38,7 @@ class ShopmanageController extends Controller
             $shop = Shop::Id($request->id)->first();
             $form = $request->all();
             unset($form['_token']);
-            if ($form['picture'] != Null)
+            if ($request->picture != Null)
             {
                 $dir = 'public/images/'.$form['id'];
                 Storage::deleteDirectory($dir);
@@ -53,7 +53,7 @@ class ShopmanageController extends Controller
             $form = $request->all();
             unset($form['_token']);
             $form["id"]= Uuid::uuid7()->toString();
-            if ($form['picture'] != Null)
+            if ($request->picture != Null)
             {
                 $dir = 'public/images/'.$form['id'];
                 Storage::deleteDirectory($dir);
