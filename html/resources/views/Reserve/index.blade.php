@@ -76,7 +76,7 @@
                 @csrf
                     @if ($reserve != Null)
                     <input type="hidden" name="id" value="{{$reserve->id}}">
-                    <input type="hidden" name="reservationstatus_id" value=1>
+                    <input type="hidden" name="reservationtatuses_id" value=1>
                     <input type="hidden" name="shop_id" value="{{$shop->id}}">
                     <div class="Reserve__date">
                         <input type="date" name="date" id="Form_date" value ="{{$reserve->date}}">
@@ -138,7 +138,7 @@
                     @endif
                     @else
                     <input type="hidden" name="shop_id" value="{{$shop->id}}">
-                    <input type="hidden" name="reservationstatus_id" value=1>
+                    <input type="hidden" name="reservationtatuses_id" value=1>
                     <div class="Reserve__date">
                         <input type="date" name="date" id="Form_date">
                     </div>

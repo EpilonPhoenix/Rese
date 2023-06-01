@@ -57,7 +57,8 @@ class ReserveController extends Controller
     public function book($shop_id)
     {
         $shop = Shop::with(['area','genre'])->Id($shop_id)->first();
-        $reserves = Reserve::with(['shop'])->Shop($shop_id)->get();
+        $reserves = Reserve::with(['user','resevationtatus'])->Shop($shop_id)->get();
+        dd($reserves);
         return view('Reserve.booking', compact('shop','reserves'));
     }
 }

@@ -4,7 +4,7 @@ namespace Database\Seeders;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
-class ReservationstatusTableSeeder extends Seeder
+class ReservationtatusesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,18 +16,22 @@ class ReservationstatusTableSeeder extends Seeder
         $param = [
             'status' => 'Reserved',
         ];
-        DB::table('reservationstatus')->insert($param);
+        DB::table('reservationtatuses')->insert($param);
+        $param = [
+            'status' => 'Booked',
+        ];
+        DB::table('reservationtatuses')->insert($param);
         $param = [
             'status' => 'Checkind',
         ];
-        DB::table('reservationstatus')->insert($param);
+        DB::table('reservationtatuses')->insert($param);
         $param = [
             'status' => 'Paid',
         ];
-        DB::table('reservationstatus')->insert($param);
+        DB::table('reservationtatuses')->insert($param);
         $param = [
             'status' => 'Evaluated',
         ];
-        DB::table('reservationstatus')->insert($param);
+        DB::table('reservationtatuses')->insert($param);
     }
 }

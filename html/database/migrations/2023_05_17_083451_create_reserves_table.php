@@ -19,8 +19,8 @@ class CreateReservesTable extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->uuid('shop_id');
             $table->foreign('shop_id')->references('id')->on('shops');
-            $table->unsignedBigInteger('reservationstatus_id');
-            $table->foreign('reservationstatus_id')->references('id')->on('reservationstatus');
+            $table->unsignedBigInteger('reservationtatuses_id');
+            $table->foreign('reservationtatuses_id')->references('id')->on('reservationtatuses');
             $table->date('date');
             $table->time('time');
             $table->integer('number_of_people');
