@@ -13,13 +13,13 @@ class ReserveController extends Controller
 
     public function index($id)
     {
-        $shop = Shop::with('area')->with('genre')->Id($id)->first();
+        $shop = Shop::with(['area','genre'])->Id($id)->first();
         $reserve =Null;
         return view('Reserve.index', compact('shop','reserve'));
     }
     public function edit($id,Request $request)
     {
-        $shop = Shop::with('area')->with('genre')->Id($id)->first();
+        $shop = Shop::with(['area','genre'])->Id($id)->first();
         $reserve =Reserve::Id($request->id)->first();
         return view('Reserve.index', compact('shop','reserve'));
     }
@@ -53,5 +53,11 @@ class ReserveController extends Controller
     {
         Reserve::Id($request->id)->first()->delete();
         return redirect('/mypage');
+    }
+    public function book($shop_id)
+    {
+        $shop = Shop::with(['area','genre'])->Id($shop_id)->first();
+        $reserves = Reserve::with(['shop'])->Shop($shop_id)->get();
+        return view('Reserve.booking', compact('shop','reserves'));
     }
 }

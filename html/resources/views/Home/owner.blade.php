@@ -64,24 +64,26 @@
                 <div class="Card_ShopName">
                     {{$shop->name}}
                 </div>
-                {{-- <div class="Tags">
+                <div class="Tags">
                     #{{$shop->area->area}} #{{$shop->genre->genre}}
-                </div> --}}
-                <div class="Buttons layout__center">
-                    <a href="{{ url('/reserve',[$shop->id]) }}">
-                        <button id='button' type="submit" class="detail">
-                            予約の確認
-                        </button>
-                    </a>
                 </div>
-                <div class="Buttons layout__center">
-                        <a href="{{ url('/shopmanage',[$shop->id]) }}">
-                        <button id='button' type="submit" class="detail">
-                            店舗情報の編集
-                        </button>
-                    </a>
+                <div class="layout__center-row">
+                    <div class="Buttons layout__center">
+                        <a href="{{ url('/booking',[$shop->id]) }}">
+                            <button id='button' type="submit" class="detail">
+                                予約の確認
+                            </button>
+                        </a>
+                    </div>
+                    <div class="Buttons layout__center">
+                            <a href="{{ url('/shopmanage',[$shop->id]) }}">
+                            <button id='button' type="submit" class="detail">
+                                店舗情報の編集
+                            </button>
+                        </a>
+                    </div>
                 </div>
-            </div>
+    </div>
         @endforeach
     </div>
 

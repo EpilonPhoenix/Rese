@@ -39,6 +39,35 @@ a{
     text-decoration: none;
     color: #3560f6;
 }
+.Cards{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: auto;
+}
+.messageAndSearchbar{
+    width: 90%;
+    margin: 0 auto 20px auto;
+}
+
+
+.message{
+    font-size: 24px;
+}
+
+.searchbar{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 50%;
+    height: 36px;
+    background-color: #fff;
+    box-shadow:2px 2px 5px;
+}
+.searchbar form{
+    width: 100%;
+}
 
 
 .Card {

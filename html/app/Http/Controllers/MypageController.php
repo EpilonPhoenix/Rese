@@ -19,7 +19,7 @@ class MypageController extends Controller
             $reserves = Reserve::with('shop')->User($user->id)->get();
             $favoriteShops = Favorite::with('shop','shop.area','shop.genre')->get();
             return view('Mypage.index',compact('user','reserves','favoriteShops'));
-            }elseif ($user->role_id == 2)
+        }elseif ($user->role_id == 2)
         {
             $shops = Shop::with(['area','genre','favorite'])->Owner($user->id)->get();
             return view('Mypage.owner',compact('user','shops'));

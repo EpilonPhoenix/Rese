@@ -25,6 +25,10 @@ Route::middleware('auth')->group(function () {
 Route::get('/reserve/{id}',[App\Http\Controllers\ReserveController::class, 'index']);
 Route::post('/reserve/{id}',[App\Http\Controllers\ReserveController::class, 'edit']);
 Route::post('/reserve',[App\Http\Controllers\ReserveController::class, 'post']);
+
+Route::middleware('auth')->group(function () {
+    Route::get('/booking/{shop_id}',[App\Http\Controllers\ReserveController::class, 'book']);
+});
 #ログイン関連
 Route::get('/login', [App\Http\Controllers\LoginController::class, 'index'])->name('login');
 Route::get('/register', [App\Http\Controllers\RegistrationController::class, 'index'])->name('register');
