@@ -20,14 +20,14 @@ class Reserve extends Model
         return ['id'];
     }
     protected $primaryKey = 'id';
-    protected $fillable = ['id','user_id','shop_id','reservationtatuses_id','date','time','number_of_people'];
+    protected $fillable = ['id','user_id','shop_id','reservationstatuses_id','date','time','number_of_people'];
     protected $keyType = 'string';
 
     public static $rules = array(
         'id' => 'required',
         'user_id' => 'required',
         'shop_id' => 'required',
-        'reservationtatuses_id' => 'required',
+        'reservationstatuses_id' => 'required',
         'date' => 'required',
         'time' => 'required',
         'number_of_people' => 'required',
@@ -40,10 +40,11 @@ class Reserve extends Model
     {
         return $this->belongsTo('App\Models\Shop');
     }
-    public function Status()
+    public function Reservationstatus()
     {
-        return $this->belongsTo('App\Models\Resevationtatus');
+        return $this->belongsTo('App\Models\Reservationstatus');
     }
+
     public function scopeUser($query, $str)
     {
         if ($str != Null)

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Resevationtatus extends Model
+class Reservationstatus extends Model
 {
     use HasFactory;
     protected $guarded = array('id');
