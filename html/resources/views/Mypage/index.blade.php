@@ -50,7 +50,7 @@
                         </div>
                     </div>
                     <div class="Reserve__remind">
-                        <table>
+                        <table class="Remind">
                             <tr>
                                 <td>
                                     Shop
@@ -84,6 +84,9 @@
                                 </td>
                             </tr>
                         </table>
+                        <div class="layout__center">
+                            {!! QrCode::generate($reserve->id); !!}
+                        </div>
                     </div>
                 </div>
                 <?php $i++; ?>

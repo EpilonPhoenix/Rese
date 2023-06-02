@@ -3,7 +3,9 @@ FROM php:8.2.4-fpm
 COPY php.ini /usr/local/etc/php/
 
 RUN apt update \
-    && apt install -y default-mysql-client zlib1g-dev libzip-dev unzip \
+    && apt install -y default-mysql-client zlib1g-dev libzip-dev unzip libfreetype6-dev libjpeg62-turbo-dev libpng-dev \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install pdo_mysql zip
 
 RUN curl -sS https://getcomposer.org/installer | php \

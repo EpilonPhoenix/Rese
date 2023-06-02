@@ -78,4 +78,4 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('/dev/{id}', [App\Http\Controllers\ShopmanageController::class, 'index']);
+Route::get('/dev', [App\Http\Livewire\Attendance\Attendancesqrcd::class, 'render']);

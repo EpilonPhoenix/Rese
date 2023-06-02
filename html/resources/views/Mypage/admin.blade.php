@@ -16,7 +16,7 @@
         </div>
 
     </div>
-    <div class="Contents layout__center">
+    <div class="UserList layout__center">
         <table>
             <thead>
                 <th>
@@ -67,7 +67,7 @@
             @endforeach
         </table>
     </div>
-    <div class="Contents layout__center">
+    <div class="UserList layout__center">
         <table>
             <thead>
                 <th>

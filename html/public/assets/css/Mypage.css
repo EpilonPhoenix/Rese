@@ -39,6 +39,9 @@
 .Reserves{
     width: 30%;
 }
+.Reserve_Card{
+    height: 300px
+}
 .Reserve_fix{
     margin: auto auto auto 20px;
 }
@@ -72,14 +75,6 @@
     border-radius: 24px;
     border-color: #fff;
 
-}
-
-.Reserve__remind{
-    padding: 10px;
-}
-
-.Reserve__remind td{
-    color: white;
 }
 
 .Favorites{
@@ -130,17 +125,29 @@
     background-color: #fff;
 }
 
-.Contents table{
+.UserList{
+    margin: 20px auto;
+    width: 90%;
+}
+
+.UserList table{
     background-color: #fff;
     border-collapse:collapse;
     box-shadow:2px 2px 5px;
     width: 100%;
 }
-.Contents tr{
+.UserList tr{
     border-bottom:1px solid black;
 }
 
-.Contents th{
-
+.UserList th{
     text-align:left;
 }
+.Reserve__remind{
+    background-color: #5580f7;
+    border-radius: 5px;
+    padding: 10px;
+
+    margin:20px 20px 120px 20px;
+}
+
