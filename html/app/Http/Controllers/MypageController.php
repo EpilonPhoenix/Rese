@@ -16,9 +16,9 @@ class MypageController extends Controller
         $user = User::IdEq(Auth::id())->first();
         if ($user->role_id == 1)
         {
-            $users = User::RoleIq(3)->get();
-            $owners = User::RoleIq(2)->get();
-            return $users;
+            $users = User::with('role')->RoleIq(3)->get();
+            $owners = User::with('role')->RoleIq(2)->get();
+            return view('Mypage.admin',compact('users','owners'));
         }elseif ($user->role_id == 2)
         {
             $shops = Shop::with(['area','genre','favorite'])->Owner($user->id)->get();

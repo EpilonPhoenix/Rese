@@ -33,6 +33,7 @@
 
 
 .Contents{
+    margin: 20px auto;
     width: 90%;
 }
 .Reserves{
@@ -124,4 +125,22 @@
 
 .Manage{
     width: 100%;
+}
+.Contents thead{
+    background-color: #fff;
+}
+
+.Contents table{
+    background-color: #fff;
+    border-collapse:collapse;
+    box-shadow:2px 2px 5px;
+    width: 100%;
+}
+.Contents tr{
+    border-bottom:1px solid black;
+}
+
+.Contents th{
+
+    text-align:left;
 }

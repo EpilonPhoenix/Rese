@@ -66,7 +66,16 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::post('/shopmanage', [App\Http\Controllers\ShopmanageController::class, 'post']);
 });
-
+#ユーザー権限の変更
+Route::middleware('auth')->group(function () {
+    Route::post('/user/roleup', [App\Http\Controllers\UserController::class, 'ToShopOwner']);
+});
+Route::middleware('auth')->group(function () {
+    Route::post('/user/roledown', [App\Http\Controllers\UserController::class, 'ToUser']);
+});
+Route::middleware('auth')->group(function () {
+    Route::post('/user/delete', [App\Http\Controllers\UserController::class, 'delete']);
+});
 
 
 Route::get('/dev/{id}', [App\Http\Controllers\ShopmanageController::class, 'index']);
