@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class Attendancesqrcd extends Component
 {
-    public function render()
+    public function render($id)
     {
         return view('livewire.attendance.attendancesqrcd')->layout('layouts.guest');
     }

@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use Carbon\Carbon;
 use App\Models\Reserve;
 use App\Mail\RemindMail;
+use Illuminate\Support\Facades\Mail;
 
 
 class SendReminder extends Command
@@ -45,13 +46,14 @@ class SendReminder extends Command
         $reserves= Reserve::with(['user','shop'])->Date($today)->get();
         foreach ($reserves as $reserve)
         {
+            $title = (string)$reserve->Shop->name."からの予約確認メールです。";
             $name = $reserve->User->name;
             $email = $reserve->User->email;
             $shop = $reserve->Shop->name;
             $date = $reserve->date;
             $time = $reserve->time;
             $id = $reserve->id;
-            Mail::send(new RemindMail($shop,$name,$email,$date,$time,$id));
+            Mail::send(new RemindMail($title,$shop,$name,$email,$date,$time,$id));
         }
     }
 }

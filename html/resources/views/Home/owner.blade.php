@@ -92,7 +92,7 @@
                         </a>
                     </div>
                     <div class="Buttons layout__center">
-                            <a href="{{ url('',[$shop->id]) }}">
+                            <a href="{{ url('/checkin',[$shop->id]) }}">
                             <button id='button' type="submit" class="detail">
                                 チェックイン
                             </button>

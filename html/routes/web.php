@@ -79,7 +79,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::post('/user/delete', [App\Http\Controllers\UserController::class, 'delete']);
 });
-#メール関連
+#メール認証
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
@@ -95,7 +95,7 @@ Route::post('/email/verification-notification', function (Request $request) {
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
-
+#お知らせメール送信
 Route::middleware('auth')->group(function () {
     Route::post('/mail/send', [App\Http\Controllers\MailController::class, 'send']);
 });
@@ -103,6 +103,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/mail/{id}', [App\Http\Controllers\MailController::class, 'index']);
 });
 
-
+Route::middleware('auth')->group(function () {
+    Route::get('/checkin/{id}', [App\Http\Livewire\Attendance\Attendancesqrcd::class, 'render']);
+});
 
 Route::get('/dev', [App\Http\Livewire\Attendance\Attendancesqrcd::class, 'render']);

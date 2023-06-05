@@ -16,9 +16,9 @@ class RemindMail extends Mailable
      *
      * @return void
      */
-    public function __construct($shop,$name,$email,$date,$time,$id)
+    public function __construct($title,$shop,$name,$email,$date,$time,$id)
     {
-
+        $this->title =$title;
         $this->shop = $shop;
         $this->name = $name;
         $this->email = $email;

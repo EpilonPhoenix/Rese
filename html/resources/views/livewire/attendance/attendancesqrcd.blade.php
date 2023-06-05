@@ -3,6 +3,7 @@
 @section('Css')
     <link rel="stylesheet" href="{{ asset('assets/css/Home.css') }}" />
     <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+    @push('scripts')
     <script language="javascript" type="text/javascript">
         window.addEventListener('load', function(){
             const video = document.createElement('video');
@@ -36,14 +37,20 @@
                         inversionAttempts: 'dontInvert',
                     });
                     // 直前に読み込んだQRコードの会員ならスキップさせる。そうしないと同じQRコードを常にリクエストしちゃう
+                    if (code && code.data !== previousData) {
+                    previousData = code.data; // いま読み込んだデータをチェックに使うために変数に退避しておく
+                    @this.attend(code.data) // livewireのメソッドを実行する。引数には会員IDが入る
+                }
                 }
                 requestAnimationFrame(tick);
             }
         })
     </script>
+    @endpush
+
 @endsection
 
-@section('pagetitle','Rese')
+@section('pagetitle','Rese Checkin')
 
 @section('contents')
 <div>
@@ -62,9 +69,6 @@
             height: 720px;
         }
     </style>
-    {{-- @pushで囲んだ内容を@stackで出力する --}}
-    @push('scripts')
-    @endpush
 
 </div>
 @endsection
