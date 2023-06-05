@@ -16,9 +16,15 @@ class RemindMail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($shop,$name,$email,$date,$time,$id)
     {
-        //
+
+        $this->shop = $shop;
+        $this->name = $name;
+        $this->email = $email;
+        $this->date = $date;
+        $this->time = $time;
+        $this->id = $id;
     }
 
     /**
@@ -28,6 +34,15 @@ class RemindMail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->to($this->email)
+            ->subject($this->title)
+            ->view('mail.reminder')
+            ->with([
+                'shop' => $this->shop,
+                'name' => $this->name,
+                'date' => $this->date,
+                'time' => $this->time,
+                'id' => $this->id,
+            ]);
     }
 }

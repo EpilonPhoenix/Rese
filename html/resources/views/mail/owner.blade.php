@@ -18,6 +18,7 @@
     <div class="Contents layout__center">
         <form action="/mail/send" method="post" class="layout__center">
             @csrf
+            <input type="hidden" name="id" value="{{$id}}">
             <textarea name="contents" id="" cols="120" rows="20"></textarea><br>
             <button>送信</button>
         </form>

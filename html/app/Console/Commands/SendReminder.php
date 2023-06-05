@@ -3,6 +3,10 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Carbon\Carbon;
+use App\Models\Reserve;
+use App\Mail\RemindMail;
+
 
 class SendReminder extends Command
 {
@@ -37,6 +41,17 @@ class SendReminder extends Command
      */
     public function handle()
     {
-        return 0;
+        $today = Carbon::today();
+        $reserves= Reserve::with(['user','shop'])->Date($today)->get();
+        foreach ($reserves as $reserve)
+        {
+            $name = $reserve->User->name;
+            $email = $reserve->User->email;
+            $shop = $reserve->Shop->name;
+            $date = $reserve->date;
+            $time = $reserve->time;
+            $id = $reserve->id;
+            Mail::send(new RemindMail($shop,$name,$email,$date,$time,$id));
+        }
     }
 }
