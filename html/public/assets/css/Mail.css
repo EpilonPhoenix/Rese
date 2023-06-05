@@ -1,0 +1,28 @@
+.message{
+    font-weight: bold;
+    font-size: 32px;
+    margin: 0 auto 20px auto;
+}
+.Titles{
+    width: 90%;
+    margin: 0 auto 20px auto;
+}
+.Reserves__title{
+    font-weight: bold;
+    font-size: 24px;
+}
+.Contents{
+    width: 90%;
+}
+
+.Contents button{
+    display: block;
+    padding: 0 20px;
+    font-size: 24px;
+    background-color:  #3560f6;
+    color: #fff;
+    border: solid 2px;
+    border-radius: 24px;
+    border-color: #fff;
+
+}

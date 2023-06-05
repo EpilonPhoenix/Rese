@@ -96,5 +96,13 @@ Route::post('/email/verification-notification', function (Request $request) {
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
 
+Route::middleware('auth')->group(function () {
+    Route::post('/mail/send', [App\Http\Controllers\MailController::class, 'send']);
+});
+Route::middleware('auth')->group(function () {
+    Route::get('/mail/{id}', [App\Http\Controllers\MailController::class, 'index']);
+});
+
+
 
 Route::get('/dev', [App\Http\Livewire\Attendance\Attendancesqrcd::class, 'render']);

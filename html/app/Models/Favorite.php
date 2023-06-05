@@ -25,6 +25,10 @@ class Favorite extends Model
     {
         return $this->belongsTo('App\Models\Shop');
     }
+    public function User()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 
     public function scopeShopId($query, $str)
     {

@@ -57,7 +57,7 @@
     </div>
     <div class="Cards">
         @foreach ($shops as $shop)
-            <div class="Card">
+            <div class="Card Long">
                 <div class="Card_img">
                     <img src="{{ url('storage/images/',[$shop->id,$shop->picture]) }}">
                 </div>
@@ -83,7 +83,23 @@
                         </a>
                     </div>
                 </div>
-    </div>
+                <div class="layout__center-row">
+                    <div class="Buttons layout__center">
+                        <a href="{{ url('/mail',[$shop->id]) }}">
+                            <button id='button' type="submit" class="detail">
+                                お知らせメール
+                            </button>
+                        </a>
+                    </div>
+                    <div class="Buttons layout__center">
+                            <a href="{{ url('',[$shop->id]) }}">
+                            <button id='button' type="submit" class="detail">
+                                チェックイン
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
         @endforeach
     </div>
 
