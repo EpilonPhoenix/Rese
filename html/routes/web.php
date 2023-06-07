@@ -110,13 +110,14 @@ Route::middleware('auth')->group(function () {
 
 #Casher
 Route::middleware('auth')->group(function () {
-    Route::get('/purchase', [App\Http\Controllers\CasherController::class, 'index']);
+    Route::get('/purchase/thankyou', [App\Http\Controllers\CasherController::class, 'post'])->name('paid');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/purchase/{id}', [App\Http\Controllers\CasherController::class, 'index']);
 });
 Route::middleware('auth')->group(function () {
     Route::post('/purchase', [App\Http\Controllers\CasherController::class, 'post'])->name('purchase.post');
-});
-Route::middleware('auth')->group(function () {
-    Route::get('/purchase/thankyou', [App\Http\Controllers\CasherController::class, 'post'])->name('paid');
 });
 
 

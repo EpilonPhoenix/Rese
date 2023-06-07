@@ -88,6 +88,12 @@
                             {!! QrCode::generate($reserve->id); !!}
                         </div>
                     </div>
+                    <div class="layout__center">
+                        <button id='button' type="submit" class="payment">
+
+                            <a href="{{ url('/purchase',[$reserve->id]) }}">支払</a>
+                        </button>
+                    </div>
                 </div>
                 <?php $i++; ?>
             @endforeach

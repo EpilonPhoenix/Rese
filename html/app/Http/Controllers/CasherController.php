@@ -16,13 +16,14 @@ class CasherController extends Controller
     public function post(Request $request)
     {
         try {
-            $stripeCharge =(new User)->charge(
+            $user = User::IdEq(Auth::id())->first();
+            $stripeCharge =$user->charge(
             100, $request->paymentMethodId
             );
         } catch (Exception $e) {
             return $request;
         }
-        return redirect('/purchase/thankyou');
+        return view('Casher.thankyou');
     }
 
 }

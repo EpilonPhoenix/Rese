@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="{{ asset('assets/css/Sanitize.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/App.css') }}" />
     @yield('Css')
-
-    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
-
     <title>
         @yield('pagetitle')
     </title>
