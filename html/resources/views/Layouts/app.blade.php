@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/Sanitize.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/App.css') }}" />
     @yield('Css')
+    @stack('scripts')
     <title>
         @yield('pagetitle')
     </title>

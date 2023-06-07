@@ -1,18 +1,18 @@
 <?php
 
 namespace App\Http\Livewire\Attendance;
-use App\Models\Reserve;
+use Illuminate\Http\Request;
 use Livewire\Component;
 
 class Attendancesqrcd extends Component
 {
     public function render($id)
     {
-        return view('livewire.attendance.attendancesqrcd')->layout('layouts.guest');
+        return view('Livewire.Attendance.Attendancesqrcd')->layout('Layouts.guest');
     }
-    public function attend(Reserve $reserve)
+    public function attend(Request $request)
     {
         // テーブルに登録する
-        dd($reserve);
+        session()->flash('message', $request->id );
     }
 }

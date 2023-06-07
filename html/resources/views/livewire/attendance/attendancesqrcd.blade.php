@@ -4,8 +4,6 @@
     <link rel="stylesheet" href="{{ asset('assets/css/Home.css') }}" />
     <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
 
-    @stack('scripts')
-
 @endsection
 
 @section('pagetitle','Rese Checkin')
@@ -24,7 +22,8 @@
 @endsection
 
 @push('scripts')
-    <script>
+<script language="javascript" type="text/javascript">
+window.addEventListener('load', function(){
         const video = document.createElement('video');
         const canvasElement = document.getElementById('canvas');
         const canvas = canvasElement.getContext('2d');
@@ -59,10 +58,13 @@
                 // 直前に読み込んだQRコードの会員ならスキップさせる。そうしないと同じQRコードを常にリクエストしちゃう
                 if (code && code.data !== previousData) {
                     previousData = code.data;
-                    console.log("datachanged");
+                    console.log(code.data);
+                    @this.attend(code.data) // livewireのメソッドを実行する。引数には会員IDが入る
                 }
             }
             requestAnimationFrame(tick);
-        }
-    </script>
-    @endpush
+    }
+})
+
+</script>
+@endpush
