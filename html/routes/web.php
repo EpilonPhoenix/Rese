@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 
 /*
@@ -106,5 +107,18 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/checkin/{id}', [App\Http\Livewire\Attendance\Attendancesqrcd::class, 'render']);
 });
+
+#Casher
+Route::middleware('auth')->group(function () {
+    Route::get('/purchase', [App\Http\Controllers\CasherController::class, 'index']);
+});
+Route::middleware('auth')->group(function () {
+    Route::post('/purchase', [App\Http\Controllers\CasherController::class, 'post'])->name('purchase.post');
+});
+Route::middleware('auth')->group(function () {
+    Route::get('/purchase/thankyou', [App\Http\Controllers\CasherController::class, 'post'])->name('paid');
+});
+
+
 
 Route::get('/dev', [App\Http\Livewire\Attendance\Attendancesqrcd::class, 'render']);
