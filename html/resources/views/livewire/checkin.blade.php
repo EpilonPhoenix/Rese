@@ -1,16 +1,4 @@
-@extends('Layouts.app')
-
-@section('Css')
-    <link rel="stylesheet" href="{{ asset('assets/css/Home.css') }}" />
-    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
-
-@endsection
-
-@section('pagetitle','Rese Checkin')
-
-@section('contents')
 <div class="layout__center">
-    {{$message}}
     <div id="output" hidden>
         <div id="outputMessage">No QR code detected.</div>
         <div hidden><b>Data:</b> <span id="outputData"></span></div>
@@ -25,7 +13,7 @@
 
     <canvas id="canvas" hidden></canvas>
 </div>
-@endsection
+
 
 @push('scripts')
 <script language="javascript" type="text/javascript">
@@ -80,7 +68,7 @@ window.addEventListener('load', function(){
                 if (code && code.data !== previousData) {
                     previousData = code.data;
                     console.log(code.data);
-                    // @livewire('Attendance.Attendancesqrcd', [code.data => $post])
+                    @this.attend(code.data) // livewireのメソッドを実行する。
                 }
             }
             requestAnimationFrame(tick);
