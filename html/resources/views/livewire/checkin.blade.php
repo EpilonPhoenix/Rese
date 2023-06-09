@@ -1,16 +1,18 @@
+@livewireScripts
 <div class="layout__center">
     <div id="output" hidden>
         <div id="outputMessage">No QR code detected.</div>
         <div hidden><b>Data:</b> <span id="outputData"></span></div>
       </div>
     <div id="loading">ブラウザのカメラの使用を許可してください。</div>
-    @if (session()->has('message'))
-    <div class="alert alert-success d-flex align-items-center" role="alert">
-        <i class="fa-solid fa-circle-check mr-1"></i>
-        {{ session('message') }}
-    </div>
-    @endif
-
+    <form wire:submit.prevent="update">
+        @if (session()->has('message'))
+            <div class="alert alert-success d-flex align-items-center" role="alert">
+                <i class="fa-solid fa-circle-check mr-1"></i>
+                {{ session('message') }}
+            </div>
+        @endif
+    </form>
     <canvas id="canvas" hidden></canvas>
 </div>
 
@@ -68,6 +70,7 @@ window.addEventListener('load', function(){
                 if (code && code.data !== previousData) {
                     previousData = code.data;
                     console.log(code.data);
+                    console.log(livewire);
                     @this.attend(code.data) // livewireのメソッドを実行する。
                 }
             }
