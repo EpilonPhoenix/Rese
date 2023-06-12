@@ -28,7 +28,6 @@
                     console.log("失敗");
                 } else {
                     // カードは正常に検証された…
-                    console.log("paymentMethod.idの生成");
                     stripePaymentIdHandler(paymentMethod.id);
                 }
             });
@@ -42,7 +41,6 @@
             hiddenInput.setAttribute('name', 'paymentMethodId');
             hiddenInput.setAttribute('value', paymentMethodId);
             form.appendChild(hiddenInput);
-            console.log("シークレットの追加");
             // Submit the form
             console.log("formの送信");
             form.submit();

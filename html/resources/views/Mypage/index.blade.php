@@ -29,23 +29,43 @@
                             <form action="{{ url('/reserve',[$reserve->shop->id]) }}" method="post">
                                 @csrf
                                 <input type="hidden" name="id" value="{{$reserve->id}}">
+                                @if ($reserve->reservationstatuses_id ==1)
                                 <button type="submit">
                                     &#x21BB;
                                 </button>
+                                @else
+                                <button type="submit" disabled>
+                                    &#x21BB;
+                                </button>
+                                @endif
                             </form>
                         </div>
 
                         <div class="Card_titile">
+                            @if ($reserve->reservationstatuses_id ==1)
                             予約:
+                            @elseif ($reserve->reservationstatuses_id ==3)
+                            チェックイン済み:
+                            @elseif ($reserve->reservationstatuses_id ==4)
+                            決済済み:
+                            @else
+                            評価済み:
+                            @endif
                             <?php echo $i; ?>
                         </div>
                         <div class="Reserve_delete">
                             <form action="/reserve/delete" method="post">
                                 @csrf
                                 <input type="hidden" name="id" value="{{$reserve->id}}">
+                                @if ($reserve->reservationstatuses_id ==1)
                                 <button type="submit">
                                     ×
                                 </button>
+                                @else
+                                <button type="submit" disabled>
+                                    ×
+                                </button>
+                                @endif
                             </form>
                         </div>
                     </div>
@@ -89,10 +109,23 @@
                         </div>
                     </div>
                     <div class="layout__center">
-                        <button id='button' type="submit" class="payment">
-
+                        @if ($reserve->reservationstatuses_id ==1)
+                        <button id='button' type="submit" class="payment" disabled>
                             <a href="{{ url('/purchase',[$reserve->id]) }}">支払</a>
                         </button>
+                        @elseif ($reserve->reservationstatuses_id ==3)
+                        <button id='button' type="submit" class="payment">
+                            <a href="{{ url('/purchase',[$reserve->id]) }}">支払</a>
+                        </button>
+                        @elseif ($reserve->reservationstatuses_id ==4)
+                        <button id='button' type="submit" class="payment">
+                            <a href="{{ url('/review',[$reserve->id]) }}">評価する</a>
+                        </button>
+                        @else
+                        <button id='button' type="submit" class="payment" disabled>
+                            <a href="{{ url('/review',[$reserve->id]) }}">評価する</a>
+                        </button>
+                        @endif
                     </div>
                 </div>
                 <?php $i++; ?>

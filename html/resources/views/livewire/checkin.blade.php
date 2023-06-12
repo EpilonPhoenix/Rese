@@ -8,7 +8,6 @@
     <form wire:submit.prevent="update">
         @if (session()->has('message'))
             <div class="alert alert-success d-flex align-items-center" role="alert">
-                <i class="fa-solid fa-circle-check mr-1"></i>
                 {{ session('message') }}
             </div>
         @endif

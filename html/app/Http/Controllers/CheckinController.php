@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class CheckinController extends Controller
 {
-    public function index()
+    public function index($id)
     {
-        return view('Checkin.index');
+        return view('Checkin.index',compact('id'));
     }
 }

@@ -103,9 +103,9 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/mail/{id}', [App\Http\Controllers\MailController::class, 'index']);
 });
-#チェックイン　（未完成）
+#チェックイン
 Route::middleware('auth')->group(function () {
-    Route::get('/checkin/{id}', [App\Http\Livewire\Attendance\Attendancesqrcd::class, 'render']);
+    Route::get('/checkin/{id}',  [App\Http\Controllers\CheckinController::class, 'index']);
 });
 
 #Casher
@@ -122,5 +122,5 @@ Route::middleware('auth')->group(function () {
 
 
 
-Route::get('/dev', [App\Http\Livewire\Attendance\Attendancesqrcd::class, 'render']);
-Route::get('/dev2', [App\Http\Controllers\CheckinController::class, 'index']);
+// Route::get('/dev', [App\Http\Livewire\Attendance\Attendancesqrcd::class, 'render']);
+// Route::get('/dev2', [App\Http\Controllers\CheckinController::class, 'index']);
