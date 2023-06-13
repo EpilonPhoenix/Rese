@@ -43,6 +43,10 @@ php artisan key:generate
 php artisan migrate:fresh  
 php artisan db:seed  
 exit  
+
+### 本番環境
+Azure VM  
+Azure SQL Database  
 ## テスト用アカウント情報
 ユーザーアカウント：  
 メールアドレス:user@admin  
