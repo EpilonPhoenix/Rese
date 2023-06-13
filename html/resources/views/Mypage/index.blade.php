@@ -136,7 +136,7 @@
                 @foreach ($favoriteShops as $shop)
                     <div class="Card">
                         <div class="Card_img">
-                            <img src="{{ url('storage/images/',[$shop->shop->id,$shop->shop->picture]) }}">
+                            <img src="{{ url('storage/images',[$shop->shop->id,$shop->shop->picture]) }}">
                         </div>
                         <div class="Card_ShopName">
                             {{$shop->shop->name}}

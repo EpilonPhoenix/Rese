@@ -61,7 +61,7 @@
         @foreach ($shops as $shop)
             <div class="Card">
                 <div class="Card_img">
-                    <img src="{{ url('storage/images/',[$shop->id,$shop->picture]) }}">
+                    <img src="{{ url('storage/images',[$shop->id,$shop->picture]) }}">
                 </div>
                 <div class="Card_ShopName">
                     {{$shop->name}}
