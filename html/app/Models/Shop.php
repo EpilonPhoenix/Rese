@@ -18,7 +18,7 @@ class Shop extends Model
         return ['id'];
     }
     protected $primaryKey = 'id';
-    protected $fillable = ['id','area_id','genre_id','user_id','date','time','name','about','picture'];
+    protected $fillable = ['id', 'area_id', 'genre_id', 'user_id', 'date', 'time', 'name', 'about', 'picture'];
     protected $keyType = 'string';
 
     public static $rules = array(
@@ -27,6 +27,30 @@ class Shop extends Model
         'user_id' => 'required',
         'name' => 'required',
     );
+    #CSV処理関連
+    public function csvHeader(): array
+    {
+        return [
+            'area_id',
+            'genre_id',
+            'name',
+            'about',
+        ];
+    }
+    public function getCsvData(): \Illuminate\Support\Collection
+    {
+        $data = DB::table('shops')->get();
+        return $data;
+    }
+    public function insertRow($row): array
+    {
+        return [
+            $row->area_id,
+            $row->genre_id,
+            $row->name,
+            $row->about,
+        ];
+    }
     public function Area()
     {
         return $this->belongsTo('App\Models\Area');
@@ -41,49 +65,42 @@ class Shop extends Model
     }
     public function scopeArea($query, $str)
     {
-        if ($str != Null)
-        {
-            return $query->where('area_id',$str);
-        }else{
+        if ($str != Null) {
+            return $query->where('area_id', $str);
+        } else {
             return $query;
         }
     }
     public function scopeGenre($query, $str)
     {
-        if ($str != Null)
-        {
-            return $query->where('genre_id',$str);
-        }else{
+        if ($str != Null) {
+            return $query->where('genre_id', $str);
+        } else {
             return $query;
         }
     }
     public function scopeSearch($query, $str)
     {
-        if ($str != Null)
-        {
-            return $query->where('name','like','%'.$str.'%');
-        }else{
+        if ($str != Null) {
+            return $query->where('name', 'like', '%' . $str . '%');
+        } else {
             return $query;
         }
     }
     public function scopeId($query, $str)
     {
-        if ($str != Null)
-        {
-            return $query->where('id',$str);
-        }else{
+        if ($str != Null) {
+            return $query->where('id', $str);
+        } else {
             return $query;
         }
     }
     public function scopeOwner($query, $str)
     {
-        if ($str != Null)
-        {
-            return $query->where('user_id',$str);
-        }else{
+        if ($str != Null) {
+            return $query->where('user_id', $str);
+        } else {
             return $query;
         }
     }
-
-
 }

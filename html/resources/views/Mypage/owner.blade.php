@@ -28,6 +28,17 @@
                 </div>
             </a>
         </div>
+        <div class="Reserves">
+            <a href="{{ route('csvImport') }}">
+                <div class="Reserve_Card">
+                    <div class="layout__center-row">
+                        <div class="Card_titile">
+                            CSVからインポート
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
     </div>
     @if (count($errors) > 0)
         @foreach ($errors->all() as $error)

@@ -41,6 +41,7 @@
             hiddenInput.setAttribute('name', 'paymentMethodId');
             hiddenInput.setAttribute('value', paymentMethodId);
             form.appendChild(hiddenInput);
+
             // Submit the form
             console.log("formの送信");
             form.submit();

@@ -21,20 +21,20 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::post('/', [App\Http\Controllers\HomeController::class, 'post']);
 #予約
 Route::middleware('auth')->group(function () {
-    Route::get('/reserve/thankyou',[App\Http\Controllers\ReserveController::class, 'thankyou']);
+    Route::get('/reserve/thankyou', [App\Http\Controllers\ReserveController::class, 'thankyou']);
 });
 Route::middleware('auth')->group(function () {
-    Route::post('/reserve/delete',[App\Http\Controllers\ReserveController::class, 'delete']);
+    Route::post('/reserve/delete', [App\Http\Controllers\ReserveController::class, 'delete']);
 });
-Route::get('/reserve/{id}',[App\Http\Controllers\ReserveController::class, 'index']);
-Route::post('/reserve/{id}',[App\Http\Controllers\ReserveController::class, 'edit']);
-Route::post('/reserve',[App\Http\Controllers\ReserveController::class, 'post']);
+Route::get('/reserve/{id}', [App\Http\Controllers\ReserveController::class, 'index']);
+Route::post('/reserve/{id}', [App\Http\Controllers\ReserveController::class, 'edit']);
+Route::post('/reserve', [App\Http\Controllers\ReserveController::class, 'post']);
 
 Route::middleware('auth')->group(function () {
-    Route::get('/booking/{shop_id}',[App\Http\Controllers\ReserveController::class, 'book']);
+    Route::get('/booking/{shop_id}', [App\Http\Controllers\ReserveController::class, 'book']);
 });
 Route::middleware('auth')->group(function () {
-    Route::post('/booking/{shop_id}',[App\Http\Controllers\ReserveController::class, 'book_post']);
+    Route::post('/booking/{shop_id}', [App\Http\Controllers\ReserveController::class, 'book_post']);
 });
 #ログイン関連
 Route::get('/login', [App\Http\Controllers\LoginController::class, 'index'])->name('login');
@@ -49,13 +49,13 @@ Route::middleware('auth')->group(function () {
 });
 #レビュー投稿
 Route::middleware('auth')->group(function () {
-    Route::get('/review/thankyou',[App\Http\Controllers\ReviewController::class, 'thankyou']);
+    Route::get('/review/thankyou', [App\Http\Controllers\ReviewController::class, 'thankyou']);
 });
 Route::middleware('auth')->group(function () {
-    Route::get('/review/{id}',[App\Http\Controllers\ReviewController::class, 'index']);
+    Route::get('/review/{id}', [App\Http\Controllers\ReviewController::class, 'index']);
 });
 Route::middleware('auth')->group(function () {
-    Route::post('/review',[App\Http\Controllers\ReviewController::class, 'post']);
+    Route::post('/review', [App\Http\Controllers\ReviewController::class, 'post']);
 });
 #店舗管理
 Route::middleware('auth')->group(function () {
@@ -69,6 +69,12 @@ Route::middleware('auth')->group(function () {
 });
 Route::middleware('auth')->group(function () {
     Route::post('/shopmanage', [App\Http\Controllers\ShopmanageController::class, 'post']);
+});
+Route::middleware('auth')->group(function () {
+    Route::get('/csvimport', [App\Http\Controllers\ShopmanageController::class, 'csvimport'])->name('csvImport');
+});
+Route::middleware('auth')->group(function () {
+    Route::post('/csvimport', [App\Http\Controllers\ShopmanageController::class, 'csvimportPost'])->name('csvImport');
 });
 #ユーザー権限の変更
 Route::middleware('auth')->group(function () {
@@ -119,8 +125,3 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::post('/purchase', [App\Http\Controllers\CasherController::class, 'post'])->name('purchase.post');
 });
-
-
-
-// Route::get('/dev', [App\Http\Livewire\Attendance\Attendancesqrcd::class, 'render']);
-// Route::get('/dev2', [App\Http\Controllers\CheckinController::class, 'index']);
