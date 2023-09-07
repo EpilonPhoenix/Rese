@@ -67,6 +67,151 @@
             <div class="about">
                 {{$shop->about}}
             </div>
+            @if ($review !=Null)
+                <h3>
+                    あなたのコメント
+                </h3>
+                <div class="review">
+                    <div class="layout__center-row">
+                        @switch($review->evaluate)
+                        @case(1)
+                            <div class='Rating'>
+                                <span class="starY" id="1">★</span>
+                                <span class="star" id="2">★</span>
+                                <span class="star" id="3">★</span>
+                                <span class="star" id="4">★</span>
+                                <span class="star" id="5">★</span>
+                            </div>
+                        @break
+                        @case(2)
+                        <div class='Rating'>
+                            <span class="starY" id="1">★</span>
+                            <span class="starY" id="2">★</span>
+                            <span class="star" id="3">★</span>
+                            <span class="star" id="4">★</span>
+                            <span class="star" id="5">★</span>
+                        </div>
+                        @break
+                        @case(3)
+                        <div class='Rating'>
+                            <span class="starY" id="1">★</span>
+                            <span class="starY" id="2">★</span>
+                            <span class="starY" id="3">★</span>
+                            <span class="star" id="4">★</span>
+                            <span class="star" id="5">★</span>
+                        </div>
+                        @break
+                        @case(4)
+                        <div class='Rating'>
+                            <span class="starY" id="1">★</span>
+                            <span class="starY" id="2">★</span>
+                            <span class="starY" id="3">★</span>
+                            <span class="starY" id="4">★</span>
+                            <span class="star" id="5">★</span>
+                        </div>
+                        @break
+                        @case(5)
+                        <div class='Rating'>
+                            <span class="starY" id="1">★</span>
+                            <span class="starY" id="2">★</span>
+                            <span class="starY" id="3">★</span>
+                            <span class="starY" id="4">★</span>
+                            <span class="starY" id="5">★</span>
+                        </div>
+                        @break
+                        @default
+                    @endswitch
+                    <form action="/review/edit" method="post" name="edit">
+                        @csrf
+                        <input type="hidden" name="id" value="{{$review->id}}">
+                        <input type="hidden" name="shop_id" value="{{$review->shop_id}}">
+                        <a href="javascript:edit.submit();">口コミを編集</a>
+                    </form>
+                    <form action="/review/delete" method="post" name="delete">
+                        @csrf
+                        <input type="hidden" name="id" value="{{$review->id}}">
+                        <input type="hidden" name="shop_id" value="{{$review->shop_id}}">
+                        <button>口コミを削除</button>
+                    </form>
+                    </div>
+                    <div>
+                        {{$review->comments}}
+                    </div>
+                    @if($review->picture!=Null)
+                        <div>
+                            <img src="{{ url('storage/review',[$review->shop_id,$review->user_id,$review->picture]) }}">
+                        </div>
+                    @endif
+                </div>
+            @else
+                <div class="review">
+                    <h3><a href={{ url('/review',[$shop->id])}}>口コミを投稿する</a></h3>
+                </div>
+            @endif
+            <h3>
+                全てのコメント
+            </h3>
+
+            @foreach ($shop->review as $rev)
+                <div class="review">
+                    @switch($rev->evaluate)
+                        @case(1)
+                            <div class='Rating'>
+                                <span class="starY" id="1">★</span>
+                                <span class="star" id="2">★</span>
+                                <span class="star" id="3">★</span>
+                                <span class="star" id="4">★</span>
+                                <span class="star" id="5">★</span>
+                            </div>
+                        @break
+                        @case(2)
+                        <div class='Rating'>
+                            <span class="starY" id="1">★</span>
+                            <span class="starY" id="2">★</span>
+                            <span class="star" id="3">★</span>
+                            <span class="star" id="4">★</span>
+                            <span class="star" id="5">★</span>
+                        </div>
+                        @break
+                        @case(3)
+                        <div class='Rating'>
+                            <span class="starY" id="1">★</span>
+                            <span class="starY" id="2">★</span>
+                            <span class="starY" id="3">★</span>
+                            <span class="star" id="4">★</span>
+                            <span class="star" id="5">★</span>
+                        </div>
+                        @break
+                        @case(4)
+                        <div class='Rating'>
+                            <span class="starY" id="1">★</span>
+                            <span class="starY" id="2">★</span>
+                            <span class="starY" id="3">★</span>
+                            <span class="starY" id="4">★</span>
+                            <span class="star" id="5">★</span>
+                        </div>
+                        @break
+                        @case(5)
+                        <div class='Rating'>
+                            <span class="starY" id="1">★</span>
+                            <span class="starY" id="2">★</span>
+                            <span class="starY" id="3">★</span>
+                            <span class="starY" id="4">★</span>
+                            <span class="starY" id="5">★</span>
+                        </div>
+                        @break
+                        @default
+                    @endswitch
+                    <div>
+                        {{$rev->comments}}
+                    </div>
+                    @if($rev->picture!=Null)
+                        <div>
+                            <img src="{{ url('storage/review',[$rev->shop_id,$rev->user_id,$rev->picture]) }}">
+                        </div>
+                    @endif
+                </div>
+            @endforeach
         </div>
         <div class="Reserve Card">
             <div class="Reserve__titie">

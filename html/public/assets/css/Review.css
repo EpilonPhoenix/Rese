@@ -7,6 +7,10 @@
     font-size: 300%;
     color: #a09a9a;
 }
+.starY {
+    font-size: 300%;
+    color:#f0da61;
+}
 
 .Reserve__remind{
     background-color: #5580f7;
@@ -27,15 +31,6 @@
 .Rating{
     margin: 0 auto 20px auto;
 }
-.Reserve_Card{
-    width: 40%;
-    height: 250px;
-    margin: 0 auto 20px auto;
-    border-radius: 5px  5px 0 0;
-    box-shadow:2px 2px 5px;
-    background-color:  #3560f6
-}
-
 .Card_titile{
     margin: 10px auto auto 10px;
     font-size: 24px;
@@ -43,14 +38,19 @@
 }
 
 .Review__comments{
-    size: 40;
-    width: 400px;
+    size: 120px;
+    width: 792px;
     margin:0 auto 20px
+}
+.dropzone{
+    border: 1px solid;
+    padding: 30px;
+    width:80%;
 }
 
 .Submit button{
     display: block;
-    margin: auto;
+    margin: 20px auto;
     font-size: 24px;
     width: 100%;
     border:none;
@@ -58,3 +58,59 @@
     color: #fff;
     border-radius: 5px;
 }
+.Card{
+    width: 22%;
+    height: 200px;
+    margin: 0 auto 20px auto;
+
+}
+.Long{
+    height: 300px;
+}
+
+.Card_img{
+    width: 100%;
+    height: 50%;
+    margin: 0 auto 5px auto;
+}
+.Card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px  5px 0 0;
+}
+
+.Card_ShopName{
+    font-size: 24px;
+    margin: 0 auto 5px 15px;
+}
+
+.Tags{
+    font-size: 12px;
+    margin: 0 auto 5px 15px;
+}
+.Buttons{
+    margin: 0 auto 5px 15px;
+}
+.detail{
+    display: block;
+    font-size: 12px;
+    width: 100px;
+    border:none;
+    background-color:  #3560f6;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.favorite{
+    color: #E2E2E2;
+    font-size: 24px;
+    margin: 0 10px 5px auto;
+    border:none;
+    background-color:  white;
+}
+
+.CRed{
+    color: red;
+}
+

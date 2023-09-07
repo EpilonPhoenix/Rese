@@ -25,7 +25,7 @@ class Shop extends Model
         'area_id' => 'required',
         'genre_id' => 'required',
         'user_id' => 'required',
-        'name' => 'required',
+        'name' => 'required', 'max:50'
     );
     #CSV処理関連
     public function csvHeader(): array
@@ -62,6 +62,10 @@ class Shop extends Model
     public function Favorite()
     {
         return $this->hasOne('App\Models\Favorite');
+    }
+    public function Review()
+    {
+        return $this->hasMany('App\Models\Review');
     }
     public function scopeArea($query, $str)
     {

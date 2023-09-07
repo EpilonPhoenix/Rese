@@ -52,8 +52,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/review/thankyou', [App\Http\Controllers\ReviewController::class, 'thankyou']);
 });
 Route::middleware('auth')->group(function () {
+    Route::post('/review/edit', [App\Http\Controllers\ReviewController::class, 'edit']);
+});
+Route::middleware('auth')->group(function () {
+    Route::post('/review/delete', [App\Http\Controllers\ReviewController::class, 'delete']);
+});
+Route::middleware('auth')->group(function () {
     Route::get('/review/{id}', [App\Http\Controllers\ReviewController::class, 'index']);
 });
+
 Route::middleware('auth')->group(function () {
     Route::post('/review', [App\Http\Controllers\ReviewController::class, 'post']);
 });

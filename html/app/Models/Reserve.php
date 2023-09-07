@@ -20,7 +20,7 @@ class Reserve extends Model
         return ['id'];
     }
     protected $primaryKey = 'id';
-    protected $fillable = ['id','user_id','shop_id','reservationstatuses_id','date','time','number_of_people'];
+    protected $fillable = ['id', 'user_id', 'shop_id', 'reservationstatuses_id', 'date', 'time', 'number_of_people'];
     protected $keyType = 'string';
 
     public static $rules = array(
@@ -47,39 +47,34 @@ class Reserve extends Model
 
     public function scopeUser($query, $str)
     {
-        if ($str != Null)
-        {
-            return $query->where('user_id',$str);
-        }else{
+        if ($str != Null) {
+            return $query->where('user_id', $str);
+        } else {
             return $query;
         }
     }
     public function scopeShop($query, $str)
     {
-        if ($str != Null)
-        {
-            return $query->where('shop_id',$str);
-        }else{
+        if ($str != Null) {
+            return $query->where('shop_id', $str);
+        } else {
             return $query;
         }
     }
     public function scopeId($query, $str)
     {
-        if ($str != Null)
-        {
+        if ($str != Null) {
             return $query->find($str);
-        }else{
+        } else {
             return $query;
         }
     }
     public function scopeDate($query, $str)
     {
-        if ($str != Null)
-        {
-            return $query->where('date',$str);
-        }else{
+        if ($str != Null) {
+            return $query->where('date', $str);
+        } else {
             return $query;
         }
     }
-
 }

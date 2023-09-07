@@ -119,3 +119,17 @@
 
     text-align:left;
 }
+.review{
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+
+.star {
+    font-size: 200%;
+    color: #a09a9a;
+}
+.starY {
+    font-size: 200%;
+    color: #f0da61;
+}
+

@@ -17,8 +17,10 @@ class CreateReviewsTable extends Migration
             $table->id();
             $table->uuid('shop_id');
             $table->foreign('shop_id')->references('id')->on('shops');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->text('comments')->nullable();
             $table->integer('evaluate');
+            $table->string('picture')->nullable();
             $table->timestamps();
         });
     }
