@@ -99,6 +99,15 @@
                         </a>
                     </div>
                 </div>
+                <div class="layout__center-row">
+                    <div class="Buttons layout__center">
+                        <a href="{{ url('/reserve',[$shop->id]) }}">
+                            <button id='button' type="submit" class="detail">
+                                予約ページ
+                            </button>
+                        </a>
+                    </div>
+                </div>
             </div>
         @endforeach
     </div>

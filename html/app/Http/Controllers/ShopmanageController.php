@@ -18,7 +18,7 @@ class ShopmanageController extends Controller
         $areas = Area::all();
         $genres = Genre::all();
         $shop = Shop::with(['area', 'genre'])->Id($id)->first();
-        if (Auth::id() == $shop->user_id) {
+        if (Auth::id() == $shop->user_id || Auth::id() == 1) {
             return view('Shopmanage.index', compact('shop', 'areas', 'genres'));
         } else {
             return redirect('login');

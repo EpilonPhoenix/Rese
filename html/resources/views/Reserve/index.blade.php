@@ -154,7 +154,8 @@
 
             @foreach ($shop->review as $rev)
                 <div class="review">
-                    @switch($rev->evaluate)
+                    <div class="layout__center-row">
+                        @switch($rev->evaluate)
                         @case(1)
                             <div class='Rating'>
                                 <span class="starY" id="1">★</span>
@@ -202,6 +203,16 @@
                         @break
                         @default
                     @endswitch
+                    @if (Auth::id() ==1)
+                    <form action="/review/delete" method="post" name="delete">
+                        @csrf
+                        <input type="hidden" name="id" value="{{$rev->id}}">
+                        <input type="hidden" name="shop_id" value="{{$rev->shop_id}}">
+                        <button>口コミを削除</button>
+                    </form>
+                    @endif
+                    </div>
+
                     <div>
                         {{$rev->comments}}
                     </div>

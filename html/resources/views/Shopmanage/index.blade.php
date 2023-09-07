@@ -4,26 +4,26 @@
     <link rel="stylesheet" href="{{ asset('assets/css/Reserve.css') }}" />
     <script language="javascript" type="text/javascript">
         window.addEventListener('load', function(){
-            const Form_date = document.getElementById('Form_date');
-            const Form_time = document.getElementById('Form_time');
-            const Form_Nop = document.getElementById('Form_Nop');
-            const R_date = document.getElementById('date');
-            const time = document.getElementById('time');
-            const number = document.getElementById('number');
+            // const Form_date = document.getElementById('Form_date');
+            // const Form_time = document.getElementById('Form_time');
+            // const Form_Nop = document.getElementById('Form_Nop');
+            // const R_date = document.getElementById('date');
+            // const time = document.getElementById('time');
+            // const number = document.getElementById('number');
 
-            function dateChange(){
-                R_date.innerHTML = Form_date.value;
-            }
-            function timeChange(){
-                time.innerHTML = Form_time.value;
-            }
-            function numberChange(){
-                number.innerHTML = Form_Nop.value;
-            }
+            // function dateChange(){
+            //     R_date.innerHTML = Form_date.value;
+            // }
+            // function timeChange(){
+            //     time.innerHTML = Form_time.value;
+            // }
+            // function numberChange(){
+            //     number.innerHTML = Form_Nop.value;
+            // }
 
-            Form_date.onchange = dateChange;
-            Form_time.onchange = timeChange;
-            Form_Nop.onchange = numberChange;
+            // Form_date.onchange = dateChange;
+            // Form_time.onchange = timeChange;
+            // Form_Nop.onchange = numberChange;
 
         })
         </script>
