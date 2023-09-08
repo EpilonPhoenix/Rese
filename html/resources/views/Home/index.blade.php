@@ -5,6 +5,7 @@
     <script language="javascript" type="text/javascript">
     window.addEventListener('load', function(){
         const searchbar = document.getElementById('searchbar');
+        const sort = document.getElementById('sort');
         const area = document.getElementById('area');
         const ganre = document.getElementById('genre');
 
@@ -32,6 +33,21 @@
             <form method="POST" action="/" class="layout__center-row" id = "searchbar">
                 @csrf
                 <div class="area_pulldown">
+                    <select name="sort" id="sort">
+                        <option value="">Sort</option>
+                            <option value="random" @if ($valarr['sort']== 'random')  selected @endif>
+                                ランダム
+                            </option>
+                            <option value="descending"  @if ($valarr['sort']== 'descending')  selected @endif>
+                                評価が高い順
+                            </option>
+                            <option value="ascending"  @if ($valarr['sort']== 'ascending')  selected @endif>
+                                評価が低い順
+                            </option>
+                    </select>
+                </div>
+
+                <div class="area_pulldown">
                     <select name="area" id="area">
                         <option value="">All Area</option>
                         @foreach ($areas as $area)
@@ -58,19 +74,61 @@
         </div>
     </div>
     <div class="Cards">
+        @foreach ($collect as $shop)
+        <div class="Card">
+            <div class="Card_img">
+                <img src="{{ url('storage/images',[$shop['id'],$shop['picture']]) }}">
+            </div>
+            <div class="Card_ShopName">
+                {{$shop['name']}}
+            </div>
+            <div class="Tags">
+                #{{$shop['area']['area']}} #{{$shop['genre']['genre']}}
+            </div>
+            <div class="Buttons layout__center-row">
+                <a href="{{ url('/reserve',[$shop['id']]) }}">
+                    <button id='button' type="submit" class="detail">
+                        詳しく見る
+                    </button>
+                </a>
+                <div>
+                    @if (Auth::check())
+                    <form action="/favorite" method="post">
+                        @csrf
+                        <input type="hidden" name="shop_id" value="{{$shop['id']}}">
+                        @if ($shop['favorite'] !=Null)
+                        <button class="favorite CRed">
+                            &#9829;
+                        </button>
+                        @else
+                        <button class="favorite">
+                            &#9829;
+                        </button>
+                        @endif
+                    </form>
+                    @else
+                    <button class="favorite" disabled>
+                        &#9829;
+                    </button>
+                @endif
+                </div>
+            </div>
+        </div>
+    @endforeach
+
         @foreach ($shops as $shop)
             <div class="Card">
                 <div class="Card_img">
-                    <img src="{{ url('storage/images',[$shop->id,$shop->picture]) }}">
+                    <img src="{{ url('storage/images',[$shop['id'],$shop['picture']]) }}">
                 </div>
                 <div class="Card_ShopName">
-                    {{$shop->name}}
+                    {{$shop['name']}}
                 </div>
                 <div class="Tags">
-                    #{{$shop->area->area}} #{{$shop->genre->genre}}
+                    #{{$shop['area']['area']}} #{{$shop['genre']['genre']}}
                 </div>
                 <div class="Buttons layout__center-row">
-                    <a href="{{ url('/reserve',[$shop->id]) }}">
+                    <a href="{{ url('/reserve',[$shop['id']]) }}">
                         <button id='button' type="submit" class="detail">
                             詳しく見る
                         </button>
@@ -79,8 +137,8 @@
                         @if (Auth::check())
                         <form action="/favorite" method="post">
                             @csrf
-                            <input type="hidden" name="shop_id" value="{{$shop->id}}">
-                            @if ($shop->favorite !=Null)
+                            <input type="hidden" name="shop_id" value="{{$shop['id']}}">
+                            @if ($shop['favorite'] !=Null)
                             <button class="favorite CRed">
                                 &#9829;
                             </button>

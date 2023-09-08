@@ -18,7 +18,6 @@ class ReserveController extends Controller
         $shop = Shop::with(['area', 'genre', 'review'])->Id($id)->first();
         $reserve = Null;
         $review = Review::Shop($id)->User(Auth::id())->first();
-
         return view('Reserve.index', compact('shop', 'reserve', 'review'));
     }
     public function edit($id, Request $request)

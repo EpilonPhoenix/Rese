@@ -67,7 +67,7 @@
             <div class="about">
                 {{$shop->about}}
             </div>
-            @if ($review !=Null)
+            @if ($review !=Null && Auth::check())
                 <h3>
                     あなたのコメント
                 </h3>
