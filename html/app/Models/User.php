@@ -56,15 +56,24 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->notify(new \App\Notifications\VerifyEmailJapanese);
     }
 
-    public function role() :BelongsTo
+    public function role(): BelongsTo
     {
         return $this->belongsTo('App\Models\Role');
     }
-    public function scopeIdEq($query, $str){
-        $query->select('id','role_id','name')->find($str);
+    public function scopeIdEq($query, $str)
+    {
+        $query->select('id', 'role_id', 'name')->find($str);
     }
-    public function scopeRoleIq($query, $str){
-        $query->where('role_id',$str)->get();
+    public function scopeId($query, $str)
+    {
+        if ($str != Null) {
+            return $query->where('id', $str);
+        } else {
+            return $query;
+        }
     }
-
+    public function scopeRoleIq($query, $str)
+    {
+        $query->where('role_id', $str)->get();
+    }
 }

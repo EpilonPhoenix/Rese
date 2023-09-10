@@ -61,15 +61,15 @@
     </x-slot>
 
     <div class="layout__center Card">
-        <div class="layout__center width100">
-            <div class="layout__center width100">
-                <div class="layout__center width100">
+        <div class="layout__center w-100">
+            <div class="layout__center w-100">
+                <div class="layout__center w-100">
                 <h2>購入</h2>
-                <form id="setup-form" action="{{ route('purchase.post') }}" method="post" class="width100">
+                <form id="setup-form" action="{{ route('purchase.post') }}" method="post" class="w-100">
                     @csrf
                     <input id="card-holder-name" type="text" placeholder="カード名義人" name="card-holder-name">
-                    <div id="card-element" class="card-element"></div>
-                    <button id="card-button" class="card-button">
+                    <div id="card-element" class="card-element mx-auto"></div>
+                    <button id="card-button" class="card-button bg-primary text-white rounded-bottom border-0 py-3 fw-bold w-100">
                         支払
                     </button>
                 </form>

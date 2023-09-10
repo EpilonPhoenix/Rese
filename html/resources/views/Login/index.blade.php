@@ -13,16 +13,16 @@
                 Login
             </div>
         </div>
-        <form method="post" action="/login" class="Login">
+        <form method="post" action="/login" >
             @csrf
-            <div class="Register_form">
-                <input type="email" name='email' placeholder="Email" >
+            <div class="row justify-content-center">
+                <input type="email" name='email' placeholder="Email" class="col-10 ">
             </div>
-            <div class="Register_form">
-                <input type="password" name='password' placeholder="Password">
+            <div class="row justify-content-center">
+                <input type="password" name='password' placeholder="Password" class="col-10">
             </div>
-            <div class="Register_form">
-                <button id='button' type="submit">
+            <div class="row justify-content-center">
+                <button id='button' type="submit" class="col-10 border-0 bg-primary text-white rounded">
                     ログイン
                 </button>
             </div>
