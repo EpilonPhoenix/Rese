@@ -19,13 +19,16 @@ https://rese.kaiacc.net
 来店予約機能  
 お気に入り登録機能  
 決済機能（テスト版）  
-レビュー機能  
 店舗管理機能  
 アプリ管理者機能  
 QR コードによる来店確認機能  
 お知らせメール機能  
 予約確認メール機能  
 (画像の管理に Laravel Storage)
+
+＋口コミ機能（コメント投稿、評価機能）  
+＋店舗一覧ソート機能
+＋ CSV ファイルインポート機能
 
 ## 使用技術
 
@@ -48,14 +51,16 @@ mv html/.env.example html/.env
 docker-compose exec php bash  
 composer update  
 php artisan key:generate  
-php artisan migrate:fresh  
-php artisan db:seed  
+php artisan migrate:fresh --seed  
+php artisan storage:link
+
 exit
 
 ### 本番環境
 
 Azure VM  
 Azure SQL Database
+（メール関連機能はインフラの整備未了のため、エラー発生します）
 
 ## テスト用アカウント情報
 
@@ -68,3 +73,12 @@ Azure SQL Database
 アプリ管理者アカウント：  
 メールアドレス:admin@admin  
 パスワード:ReseMaster
+
+### CSV ファイルの仕様
+
+ファイルの文字コード:UTF-8  
+カラム名：area_id,genre_id,name,about  
+area_id の値：東京都:1,大阪府:2,福岡県:3  
+genre_id の値:寿司：1,焼肉:2,居酒屋:3,イタリアン:4,ラーメン:5  
+参考ファイル  
+Req/import.csv ファイル
